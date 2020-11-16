@@ -8,9 +8,14 @@ const restaurantSchema = new Schema({
     streetname: {type: Number},
     zipcode: {type: Number},
     phoneNumber: {type: Number},
+    menu: [
+        { 
+        item_id: {type: String}, 
+        }
+    ]
 });
 
-const Restaurant = mongoose.model('Restaurants', restaurantSchema)
+const Restaurant = mongoose.model('Restaurant', restaurantSchema)
 
 
 module.exports = Restaurant
