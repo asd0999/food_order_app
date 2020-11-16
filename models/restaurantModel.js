@@ -10,7 +10,7 @@ const restaurantSchema = new Schema({
     phoneNumber: {type: Number},
 });
 
-const Restaurants = mongoose.model('Restaurants', restaurantSchema)
+const Restaurant = mongoose.model('Restaurants', restaurantSchema)
 
 
-module.exports = Restaurants
+module.exports = Restaurant
