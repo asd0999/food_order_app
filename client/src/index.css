@@ -16,6 +16,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* HEADER */
+.brand-logo h1 {
+  font-weight: 300;
+}
+
+.brand-logo h1 span {
+  font-weight: 600;
+  color: #07cf6f;
+}
+
+.search-bar {
+  margin-left: auto;
+}
+
+.header-item {
+  padding-left: 5rem;
+  letter-spacing: 0.6px;
+  display: flex;
+  align-items: center;
+}
+.currentDetails,
+.search-bar {
+  display: flex;
+}
+
+.header-options {
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.sign-in-button {
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+}
+
+.header-search {
+  padding: 9px;
+  /* border-radius: 5px; */
+  border: 1.75px solid black;
+}
+
 /* LISTING */
 .listings-row {
   display: flex;
