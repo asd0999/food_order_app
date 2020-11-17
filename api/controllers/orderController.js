@@ -1,13 +1,25 @@
-const { json } = require("body-parser");
 const express = require("express");
 const Order = require("../models/orderModel");
 const orders = express.Router();
 
 // ROUTES
+// read - last order
+orders.get("/", (req, res) => {
+    Order.find({}) //add user from session
+        .sort({ createdOn: 1 })
+        .exec((error, foundOrders) => {
+            if (error) {
+                res.status(400).json({ error: error.message });
+            } else {
+                res.status(200).json(foundOrders[0]);
+            }
+        });
+});
+
 // read - history
 orders.get("/history", (req, res) => {
     Order.find({})
-        .sort({ createdOn: 1 })
+        .sort({ createdAt: 1 })
         .exec((error, foundOrders) => {
             if (error) {
                 res.status(400).json({ error: error.message });
@@ -18,7 +30,8 @@ orders.get("/history", (req, res) => {
 });
 
 // create
-orders.post("/new", (req, res) => {
+orders.post("/new/:user_id", (req, res) => {
+    req.body.user_id = req.params.user_id; //temporary to check different user's orders
     Order.create(req.body, (error, createdOrder) => {
         if (error) {
             res.status(400).json({ error: error.message });
@@ -38,3 +51,5 @@ orders.delete("/:id", (req, res) => {
         }
     });
 });
+
+module.exports = orders;

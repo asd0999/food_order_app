@@ -26,7 +26,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan(":method :url :status"));
 
-// ROUTER CONFIG
+// CONTROLLERS
+const restaurantController = require("./controllers/restaurantController");
+app.use("/restaurants", restaurantController);
+
+const orderController = require("./controllers/orderController");
+app.use("/orders", orderController);
+
+// ROUTE
 app.get("/", (req, res) => {
     res.send("index route working");
 });
