@@ -8,6 +8,9 @@ const restaurantSchema = new Schema({
     streetname: {type: Number},
     zipcode: {type: Number},
     phoneNumber: {type: Number},
+    imgURL: {type: String},
+    rating: {type: Number},
+    tag: [String],
     menu: [
         { 
         item_id: {type: String}, 
