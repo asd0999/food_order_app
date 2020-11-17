@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RestuarantWidget from "./components/RestuarantWidget";
+import FoodItems from "./components/FoodItems";
 
 export default class App extends Component {
   render() {
@@ -7,6 +8,7 @@ export default class App extends Component {
       <div>
         <h1>Food order app</h1>
         <RestuarantWidget />
+        <FoodItems />
       </div>
     );
   }
