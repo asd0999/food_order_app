@@ -3,6 +3,13 @@ import RestuarantWidget from "./components/RestuarantWidget";
 import FoodItems from "./components/FoodItems";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      restuarants: [],
+    };
+  }
+
   render() {
     return (
       <div>
