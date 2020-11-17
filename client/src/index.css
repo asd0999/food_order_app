@@ -78,3 +78,25 @@ body {
   margin: auto 0 auto auto;
   height: 100%;
 }
+
+/* FOOD ITEMS */
+.food-items-container {
+  width: 100%;
+  height: 20px;
+  display: flex;
+}
+.food-items-inner {
+  text-align: center;
+  display: flex;
+}
+.food-item-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.food-item-name {
+  width: 5rem;
+  text-align: center;
+  font-weight: bolder;
+  font-size: smaller;
+}
