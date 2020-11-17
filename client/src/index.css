@@ -1,19 +1,13 @@
-/* 
-restaurant-card-item 
-span: rgb(84, 84, 84)
-
-
-
-
-*/
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 120px);
+  margin: auto;
 }
 
 /* HEADER */
@@ -119,26 +113,4 @@ body {
 .rating {
   margin: auto 0 auto auto;
   height: 100%;
-}
-
-/* FOOD ITEMS */
-.food-items-container {
-  width: 100%;
-  height: 20px;
-  display: flex;
-}
-.food-items-inner {
-  text-align: center;
-  display: flex;
-}
-.food-item-icon {
-  width: 4rem;
-  height: 4rem;
-}
-
-.food-item-name {
-  width: 5rem;
-  text-align: center;
-  font-weight: bolder;
-  font-size: smaller;
 }
