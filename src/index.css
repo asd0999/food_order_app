@@ -52,6 +52,27 @@ body {
   border: 1.75px solid black;
 }
 
+/* BANNER */
+.banner-container {
+  background-color: green;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.banner-inner {
+  padding: 20px 0 20px 0;
+  width: 60%;
+  /* height: 60%; */
+  display: inline-block;
+}
+.banner-inner-img {
+  object-fit: cover;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
 /* LISTING */
 .listings-row {
   display: flex;
