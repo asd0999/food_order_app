@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import RestuarantWidget from "./components/RestuarantWidget";
-import FoodItems from "./components/FoodItems";
-import Header from "./components/Header";
+import { Route } from "react-router-dom";
+import RestuarantWidget from "./components/landingPage/RestuarantWidget";
+import FoodItems from "./components/landingPage/FoodItems";
+import Header from "./components/landingPage/Header";
+import SignIn1 from "./components/auth/SignIn1";
 
 export default class App extends Component {
   constructor(props) {
@@ -14,8 +16,15 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <RestuarantWidget />
+        {/* landing page */}
+        <Route exact path="/">
+          <Header />
+          <RestuarantWidget />
+        </Route>
+        {/* sign in */}
+        <Route exact path="/sign-in">
+          <SignIn1 />
+        </Route>
       </div>
     );
   }
