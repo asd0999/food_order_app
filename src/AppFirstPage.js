@@ -39,6 +39,8 @@ export default class App extends Component {
           <Route exact path="/sign-in" component={SignIn1}>
             <SignIn1 />
           </Route>
+
+          <Route>{/* Claire's part */}</Route>
         </Switch>
       </div>
     );

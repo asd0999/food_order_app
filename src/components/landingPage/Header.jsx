@@ -39,7 +39,6 @@ export default class Header extends Component {
               <div class="header-item">
                 <span>
                   <NavLink href="/sign-in">Sign in</NavLink>
-                  {/* <button className="sign-in-button">Sign in</button> */}
                 </span>
               </div>
             </div>
