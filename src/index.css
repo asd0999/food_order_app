@@ -1,19 +1,15 @@
-/* 
-restaurant-card-item 
-span: rgb(84, 84, 84)
-
-
-
-
-*/
-
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 120px);
+  margin: auto;
 }
 
 /* HEADER */
@@ -58,6 +54,28 @@ body {
   border: 1.75px solid black;
 }
 
+/* BANNER */
+.banner-container {
+  background-color: green;
+  display: flex;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+}
+.banner-inner {
+  padding: 20px 0 20px 0;
+  width: 60%;
+  /* height: 60%; */
+  display: inline-block;
+}
+.banner-inner-img {
+  object-fit: cover;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
 /* LISTING */
 .listings-row {
   display: flex;
@@ -78,6 +96,8 @@ body {
 .listings-row-element {
   width: calc(33% - 17px);
   margin-top: 2rem;
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 .text-lower {
@@ -90,11 +110,13 @@ body {
 .image {
   height: 240px;
   overflow: hidden;
+  /* border: 1px black solid; */
+  border-radius: 20px;
 }
 
 .image img {
   width: 100%;
-  height: 100%;
+  height: 70%;
   object-fit: cover;
 }
 
@@ -121,24 +143,14 @@ body {
   height: 100%;
 }
 
-/* FOOD ITEMS */
-.food-items-container {
-  width: 100%;
-  height: 20px;
-  display: flex;
-}
-.food-items-inner {
-  text-align: center;
-  display: flex;
-}
-.food-item-icon {
-  width: 4rem;
-  height: 4rem;
+.circle {
+  margin-right: 5px;
 }
 
-.food-item-name {
-  width: 5rem;
-  text-align: center;
-  font-weight: bolder;
-  font-size: smaller;
+/* sign-in-items */
+
+.sign-in-items {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
 }

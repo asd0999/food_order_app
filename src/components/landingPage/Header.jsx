@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-bootstrap";
 
 export default class Header extends Component {
   render() {
@@ -37,7 +38,7 @@ export default class Header extends Component {
               </div>
               <div class="header-item">
                 <span>
-                  <button className="sign-in-button">Sign in</button>
+                  <NavLink href="/sign-in">Sign in</NavLink>
                 </span>
               </div>
             </div>
