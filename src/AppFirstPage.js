@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://zuber-eats-api.herokuapp.com/restaurants/")
+    fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
       .then((data) => {
         return data.json();
       })
@@ -25,7 +25,7 @@ export default class App extends Component {
       });
   }
   render() {
-    // console.log(this.state.restaurants);
+    console.log(this.state.restaurants);
     return (
       <div>
         {/* landing page */}
