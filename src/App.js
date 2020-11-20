@@ -22,6 +22,7 @@ export default class App extends Component {
     this.updateStateUI = this.updateStateUI.bind(this);
     this.updateStateRI = this.updateStateRI.bind(this);
     this.sendRestaurant = this.sendRestaurant.bind(this);
+    this.rememberUser = this.rememberUser.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -59,6 +60,15 @@ export default class App extends Component {
     });
   }
 
+  rememberUser(user) {
+    console.log(user);
+    if (user !== "") {
+      this.setState({
+        user_name: user,
+      });
+    }
+  }
+
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
       .then((data) => {
@@ -70,11 +80,15 @@ export default class App extends Component {
         });
       });
   }
+
   render() {
     console.log(this.state.restaurants);
     return (
       <div>
-        <Header user_name={this.state.user_name} />
+        <Header
+          user_name={this.state.user_name}
+          rememberUser={this.rememberUser}
+        />
         {/* landing page */}
         <Switch>
           <Route exact path="/" component={(Banner, RestaurantWidgetContainer)}>
