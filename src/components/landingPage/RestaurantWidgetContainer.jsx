@@ -16,6 +16,7 @@ export default class RestaurantWidgetContainer extends Component {
                   updateStateRI={this.props.updateStateRI}
                   restaurant_id={this.props.restaurant_id}
                   user_id={this.props.user_id}
+                  emptyCart = {this.props.emptyCart}
                 />
               );
             })}
