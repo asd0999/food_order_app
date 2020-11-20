@@ -36,12 +36,7 @@ export default class App extends Component {
       restaurant_id: ri,
       restaurant_name: rn,
     });
-  }
-
-  componentDidUpdate() {
-    if (this.state.current_restaurant_index == -1) {
-      this.sendRestaurant();
-    }
+    setTimeout(this.sendRestaurant, 100);
   }
 
   sendRestaurant() {
@@ -58,14 +53,6 @@ export default class App extends Component {
         console.log("didnt find");
       }
     });
-  }
-
-  forgetRestaurant() {
-    // this.setState({
-    //   restaurant_id: "",
-    //   restaurant_name: "",
-    //   current_restaurant_index: -1,
-    // });
   }
 
   componentDidMount() {

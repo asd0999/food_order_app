@@ -10,7 +10,7 @@ export default class Header extends Component {
           <div class="header-container">
             <div class="brand-logo">
               <Link to="/">
-                <h1 onClick={this.props.forgetRestaurant()}>
+                <h1>
                   Zuber<span>Eats</span>
                 </h1>
               </Link>
