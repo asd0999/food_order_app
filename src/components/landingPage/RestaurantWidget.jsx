@@ -14,6 +14,10 @@ export default class RestaurantWidget extends Component {
     this.props.updateStateRI(ri, rn);
   }
 
+  componentDidMount() {
+    this.props.emptyCart()
+  }
+
   render() {
     return (
       <div className="listings-row-element">
