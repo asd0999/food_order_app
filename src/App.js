@@ -22,7 +22,7 @@ export default class App extends Component {
     this.updateStateUI = this.updateStateUI.bind(this);
     this.updateStateRI = this.updateStateRI.bind(this);
     this.sendRestaurant = this.sendRestaurant.bind(this);
-    this.rememberUser = this.rememberUser.bind(this);
+    this.forgetRestaurant = this.forgetRestaurant.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -60,13 +60,12 @@ export default class App extends Component {
     });
   }
 
-  rememberUser(user) {
-    console.log(user);
-    if (user !== "") {
-      this.setState({
-        user_name: user,
-      });
-    }
+  forgetRestaurant() {
+    // this.setState({
+    //   restaurant_id: "",
+    //   restaurant_name: "",
+    //   current_restaurant_index: -1,
+    // });
   }
 
   componentDidMount() {
@@ -87,7 +86,7 @@ export default class App extends Component {
       <div>
         <Header
           user_name={this.state.user_name}
-          rememberUser={this.rememberUser}
+          forgetRestaurant={this.forgetRestaurant}
         />
         {/* landing page */}
         <Switch>
