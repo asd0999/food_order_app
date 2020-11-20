@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
@@ -8,15 +9,11 @@ export default class Header extends Component {
         <header>
           <div class="header-container">
             <div class="brand-logo">
-              <NavLink href="/">
-                <h1
-                  onClick={() => {
-                    this.props.rememberUser(this.props.user_name);
-                  }}
-                >
+              <Link to="/">
+                <h1 onClick={this.props.forgetRestaurant()}>
                   Zuber<span>Eats</span>
                 </h1>
-              </NavLink>
+              </Link>
             </div>
             <div class="currentDetails">
               <div class="header-item">
