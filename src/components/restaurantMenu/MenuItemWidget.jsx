@@ -4,7 +4,8 @@ export default class MenuItemWidget extends Component {
   render() {
     return (
       <div className="listings-row-element">
-        <div className="image">
+        <div className="image" onClick= {() => {
+          this.props.updateCart(this.props.item)}}>
           <img src={this.props.item.imgURL} alt="itemPic" />
         </div>
         <div className="text">
