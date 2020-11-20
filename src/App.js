@@ -11,18 +11,23 @@ export default class App extends Component {
     this.state = {
       restaurants: [],
       user_id: "",
-      restaurant_id: ""
+      restaurant_id: "",
     };
 
-    this.updateState = this.updateState.bind(this)
+    this.updateStateUI = this.updateStateUI.bind(this);
+    this.updateStateRI = this.updateStateRI.bind(this);
   }
 
-    updateState(ui, ri) {
-      this.setState({
-        user_id: ui, 
-        restaurant_id: ri,
-      })
-    }
+  updateStateUI(ui) {
+    this.setState({
+      user_id: ui,
+    });
+  }
+  updateStateRI(ri) {
+    this.setState({
+      restaurant_id: ri,
+    });
+  }
 
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
@@ -39,20 +44,23 @@ export default class App extends Component {
     console.log(this.state.restaurants);
     return (
       <div>
-        <Header />
-        {/* landing page */}
+        <Header /> {/* landing page */}{" "}
         <Switch>
-          <Route exact path="/" component={Banner, RestaurantWidgetContainer}>
+          <Route exact path="/" component={(Banner, RestaurantWidgetContainer)}>
             <Banner />
-            <RestaurantWidgetContainer restaurants={this.state.restaurants} restaurant_id={this.state.restaurant_id} user_id={this.state.user_id} updateState={this.updateState}/>
-          </Route>
-          {/* sign in */}
+            <RestaurantWidgetContainer
+              restaurants={this.state.restaurants}
+              restaurant_id={this.state.restaurant_id}
+              user_id={this.state.user_id}
+              updateStateRI={this.updateStateRI}
+            />{" "}
+          </Route>{" "}
+          {/* sign in */}{" "}
           <Route exact path="/sign-in" component={SignIn1}>
-            <SignIn1 />
+            <SignIn1 updateStateUI={this.updateStateUI} />{" "}
           </Route>
-
-          <Route>{/* Claire's part */}</Route>
-        </Switch>
+          <Route> {/* Claire's part */} </Route>{" "}
+        </Switch>{" "}
       </div>
     );
   }
