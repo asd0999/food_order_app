@@ -38,7 +38,11 @@ export default class Header extends Component {
               </div>
               <div class="header-item">
                 <span>
-                  <NavLink href="/sign-in">Sign in</NavLink>
+                  {this.props.user_name ? (
+                    this.props.user_name
+                  ) : (
+                    <NavLink href="/sign-in">Sign in</NavLink>
+                  )}
                 </span>
               </div>
             </div>

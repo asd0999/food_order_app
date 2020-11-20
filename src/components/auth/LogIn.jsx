@@ -43,7 +43,7 @@ export default class SignIn1 extends Component {
               <Link to="/">
                 <button
                   onClick={() => {
-                    this.props.updateStateUI(user._id);
+                    this.props.updateStateUI(user._id, user.username);
                   }}
                 >
                   Login

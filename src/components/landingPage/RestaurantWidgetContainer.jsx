@@ -8,9 +8,10 @@ export default class RestaurantWidgetContainer extends Component {
       <div>
         <div className="listings-row">
           <div className="listings-col">
-            {this.props.restaurants.map((item) => {
+            {this.props.restaurants.map((item, index) => {
               return (
                 <RestaurantWidget
+                  key={index}
                   item={item}
                   updateStateRI={this.props.updateStateRI}
                   restaurant_id={this.props.restaurant_id}
