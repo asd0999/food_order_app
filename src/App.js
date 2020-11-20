@@ -22,7 +22,6 @@ export default class App extends Component {
     this.updateStateUI = this.updateStateUI.bind(this);
     this.updateStateRI = this.updateStateRI.bind(this);
     this.sendRestaurant = this.sendRestaurant.bind(this);
-    this.forgetRestaurant = this.forgetRestaurant.bind(this);
   }
 
   updateStateUI(ui, un) {
