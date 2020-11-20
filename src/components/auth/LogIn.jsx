@@ -35,8 +35,8 @@ export default class SignIn1 extends Component {
             <div
               style={{
                 width: "18rem",
-                "text-align": "center",
-                "background-color": "grey",
+                textAlign: "center",
+                backgroundColor: "grey",
               }}
             >
               <h1>{user.username}</h1>
