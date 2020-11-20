@@ -9,7 +9,11 @@ export default class Header extends Component {
           <div class="header-container">
             <div class="brand-logo">
               <NavLink href="/">
-                <h1>
+                <h1
+                  onClick={() => {
+                    this.props.rememberUser(this.props.user_name);
+                  }}
+                >
                   Zuber<span>Eats</span>
                 </h1>
               </NavLink>
