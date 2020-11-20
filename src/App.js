@@ -92,11 +92,11 @@ export default class App extends Component {
           </Route>
           <Route
             exact
-            path={this.state.restaurant_name}
+            path="/r/:restaurant_name"
             component={(MenuItemWidgetContainer, MenuItemWidget)}
           >
             <MenuItemWidgetContainer
-              current_restaurant={
+              restaurant={
                 this.state.restaurants[this.state.current_restaurant_index]
               }
             />

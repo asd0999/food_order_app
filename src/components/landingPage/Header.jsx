@@ -8,9 +8,11 @@ export default class Header extends Component {
         <header>
           <div class="header-container">
             <div class="brand-logo">
-              <h1>
-                Zuber<span>Eats</span>
-              </h1>
+              <NavLink href="/">
+                <h1>
+                  Zuber<span>Eats</span>
+                </h1>
+              </NavLink>
             </div>
             <div class="currentDetails">
               <div class="header-item">
@@ -39,7 +41,7 @@ export default class Header extends Component {
               <div class="header-item">
                 <span>
                   {this.props.user_name ? (
-                    this.props.user_name
+                    "Welcome " + this.props.user_name
                   ) : (
                     <NavLink href="/sign-in">Sign in</NavLink>
                   )}

@@ -17,7 +17,10 @@ export default class RestaurantWidget extends Component {
   render() {
     return (
       <div className="listings-row-element">
-        <Link to={this.props.item.restaurantName} onClick={this.handleClick}>
+        <Link
+          to={`/r/${this.props.item.restaurantName}`}
+          onClick={this.handleClick}
+        >
           <div className="image">
             <img src={this.props.item.imgUrl} alt="restaurantPic" />
           </div>
