@@ -145,6 +145,7 @@ body {
     font-weight: 400;
     margin-bottom: 0.3rem;
     margin-top: 0;
+    height: 40px;
 }
 
 .text span {
@@ -200,7 +201,7 @@ body {
     justify-content: space-evenly;
     margin: 0 40px;
     width: 70%;
-    max-height: 440px;
+    height: 440px;
 }
 
 .listings-row-element-menu {
