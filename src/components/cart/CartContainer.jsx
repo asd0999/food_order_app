@@ -43,7 +43,13 @@ class CartContainer extends Component {
           <CartTotal cartTotal={this.props.cartTotal} />
         </table>
         {this.props.cart.length ? (
-          <PlaceOrderButton user_id={this.props.user_id} />
+          <PlaceOrderButton
+            user_id={this.props.user_id}
+            user_name={this.props.user_name}
+            cart={this.props.cart}
+            itemsInCart_id={this.props.itemsInCart_id}
+            emptyCart={this.props.emptyCart}
+          />
         ) : null}
       </div>
     );

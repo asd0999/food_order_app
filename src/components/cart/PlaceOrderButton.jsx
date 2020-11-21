@@ -11,16 +11,8 @@ export default class PlaceOrderButton extends Component {
       method: "POST",
       body: JSON.stringify({
         user_id: this.props.user_id,
-        order: [
-          {
-            item_id: "fries",
-            quantity: 1,
-          },
-          {
-            item_id: "checkn_nuggets",
-            quantity: 1,
-          },
-        ],
+        user_name: this.props.user_name,
+        itemsInOrder: this.props.itemsInCart_id,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -30,10 +22,9 @@ export default class PlaceOrderButton extends Component {
         return data.json();
       })
       .then((parsedData) => {
-        this.setState({
-          restaurants: parsedData,
-        });
+        console.log(parsedData);
       });
+    this.props.emptyCart();
   }
 
   render() {

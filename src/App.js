@@ -19,6 +19,7 @@ export default class App extends Component {
       current_restaurant_index: -1,
       cart: [],
       cartTotal: 0,
+      itemsInCart_id: [],
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -64,9 +65,15 @@ export default class App extends Component {
     let updatedTotal = this.state.cartTotal;
     updatedTotal += item.price;
 
+    const updatedItemsInCart_id = [
+      ...this.state.itemsInCart_id,
+      { item_id: item._id, quantity: 1 },
+    ];
+
     this.setState({
       cart: updatedCart,
       cartTotal: updatedTotal,
+      itemsInCart_id: updatedItemsInCart_id,
     });
   }
 
@@ -74,6 +81,7 @@ export default class App extends Component {
     this.setState({
       cart: [],
       cartTotal: 0,
+      itemsInCart_id: [],
     });
   }
 
@@ -143,9 +151,12 @@ export default class App extends Component {
               />
               <CartContainer
                 user_id={this.state.user_id}
+                user_name={this.state.user_name}
                 cartTotal={this.state.cartTotal}
                 cart={this.state.cart}
                 deleteCartItem={this.deleteCartItem}
+                itemsInCart_id={this.state.itemsInCart_id}
+                emptyCart={this.emptyCart}
               />
             </div>
           </Route>
