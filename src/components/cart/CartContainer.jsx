@@ -12,12 +12,20 @@ class CartContainer extends Component {
           <th className="th-price total">
             <h4>Price</h4>
           </th>
+          <th></th>
         </tr>
-        {this.props.cart.map((item) => {
+        {this.props.cart.map((item, index) => {
           return (
             <tr>
               <td className="th-item">{item.name}</td>
               <td className="th-price">{item.price}</td>
+              <td>
+                <button
+                  onClick={() => this.props.deleteCartItem(item.price, index)}
+                >
+                  X
+                </button>
+              </td>
             </tr>
           );
         })}

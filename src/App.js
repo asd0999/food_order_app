@@ -26,6 +26,7 @@ export default class App extends Component {
     this.sendRestaurant = this.sendRestaurant.bind(this);
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
+    this.deleteCartItem = this.deleteCartItem.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -73,6 +74,18 @@ export default class App extends Component {
     this.setState({
       cart: [],
       cartTotal: 0,
+    });
+  }
+
+  deleteCartItem(price, index) {
+    const updated = this.state.cart;
+    updated.splice(index, 1);
+    let updatedTotal = this.state.cartTotal - price;
+    console.log("price", typeof price);
+
+    this.setState({
+      cart: updated,
+      cartTotal: updatedTotal,
     });
   }
 
@@ -131,6 +144,7 @@ export default class App extends Component {
               <CartContainer
                 cartTotal={this.state.cartTotal}
                 cart={this.state.cart}
+                deleteCartItem={this.deleteCartItem}
               />
             </div>
           </Route>
