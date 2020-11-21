@@ -61,13 +61,19 @@ export default class App extends Component {
   }
 
   updateCart(item) {
+    console.log(item);
     const updatedCart = [...this.state.cart, item];
     let updatedTotal = this.state.cartTotal;
     updatedTotal += item.price;
 
     const updatedItemsInCart_id = [
       ...this.state.itemsInCart_id,
-      { item_id: item._id, quantity: 1 },
+      {
+        item_id: item._id,
+        quantity: 1,
+        price: item.price,
+        item_name: item.name,
+      },
     ];
 
     this.setState({
