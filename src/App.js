@@ -18,7 +18,8 @@ export default class App extends Component {
       restaurant_id: "",
       restaurant_name: "",
       current_restaurant_index: -1,
-      cart: []
+      cart: [],
+      cartTotal: 0,
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -58,18 +59,23 @@ export default class App extends Component {
     });
   }
 
-    updateCart(item) {
-      const updatedCart = [...this.state.cart, item]
-        this.setState({
-          cart: updatedCart
-        })
-    }
+  updateCart(item) {
+    const updatedCart = [...this.state.cart, item];
+    let updatedTotal = this.state.cartTotal;
+    updatedTotal += item.price;
 
-    emptyCart() {
-      this.setState({
-        cart: []
-      })
-    }
+    this.setState({
+      cart: updatedCart,
+      cartTotal: updatedTotal,
+    });
+  }
+
+  emptyCart() {
+    this.setState({
+      cart: [],
+      cartTotal: 0,
+    });
+  }
 
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
@@ -100,7 +106,7 @@ export default class App extends Component {
               restaurant_id={this.state.restaurant_id}
               user_id={this.state.user_id}
               updateStateRI={this.updateStateRI}
-              emptyCart = {this.emptyCart}
+              emptyCart={this.emptyCart}
             />
           </Route>
           {/* sign in */}
@@ -112,7 +118,10 @@ export default class App extends Component {
             path="/r/:restaurant_name"
             component={(MenuItemWidgetContainer, CartContainer)}
           >
-            <CartContainer cart={this.state.cart}/>
+            <CartContainer
+              cartTotal={this.state.cartTotal}
+              cart={this.state.cart}
+            />
             <MenuItemWidgetContainer
               restaurant={
                 this.state.restaurants[this.state.current_restaurant_index]
