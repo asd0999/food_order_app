@@ -5,7 +5,6 @@ import Header from "./components/landingPage/Header";
 import LogIn from "./components/auth/LogIn";
 import Banner from "./components/landingPage/Banner";
 import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetContainer";
-import MenuItemWidget from "./components/restaurantMenu/MenuItemWidget";
 import CartContainer from "./components/cart/CartContainer";
 
 export default class App extends Component {
@@ -118,16 +117,22 @@ export default class App extends Component {
             path="/r/:restaurant_name"
             component={(MenuItemWidgetContainer, CartContainer)}
           >
-            <CartContainer
-              cartTotal={this.state.cartTotal}
-              cart={this.state.cart}
-            />
-            <MenuItemWidgetContainer
-              restaurant={
-                this.state.restaurants[this.state.current_restaurant_index]
-              }
-              updateCart={this.updateCart}
-            />
+            <h1 style={{ width: "100%", marginLeft: "40px" }}>
+              Welcome to{" "}
+              {this.state.restaurant_name && this.state.restaurant_name}
+            </h1>
+            <div className="menu-view">
+              <MenuItemWidgetContainer
+                restaurant={
+                  this.state.restaurants[this.state.current_restaurant_index]
+                }
+                updateCart={this.updateCart}
+              />
+              <CartContainer
+                cartTotal={this.state.cartTotal}
+                cart={this.state.cart}
+              />
+            </div>
           </Route>
         </Switch>
       </div>

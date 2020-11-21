@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-export default class SignIn1 extends Component {
+export default class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,13 +32,7 @@ export default class SignIn1 extends Component {
       <div className="sign-in-items">
         {this.state.users.map((user) => {
           return (
-            <div
-              style={{
-                width: "18rem",
-                textAlign: "center",
-                backgroundColor: "grey",
-              }}
-            >
+            <div className="users">
               <h1>{user.username}</h1>
               <Link to="/">
                 <button
