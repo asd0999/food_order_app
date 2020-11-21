@@ -221,15 +221,31 @@ body {
     flex-direction: row;
 }
 
-table {
+.cart-container {
     margin-top: 2rem;
     width: 30%;
     margin-right: 40px;
     text-align: left;
 }
 
+table {
+    width: 100%;
+}
+
 .th-item {
     width: 70%;
+}
+
+
+/* .th-item-header {
+    width: 100%;
+} */
+
+#item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .name-and-delete-div {
@@ -257,6 +273,7 @@ th {
 .total {
     padding: 0 20px;
     background-color: rgb(231, 229, 222);
+    height: 61px;
 }
 
 th {
@@ -274,4 +291,23 @@ th {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+}
+
+.order-button-container {
+    width: 99%;
+    padding: 0;
+    margin-left: 2px;
+    box-shadow: 0px 2px 4px grey;
+}
+
+.order-button-container button {
+    border: none;
+    background-color: dodgerblue;
+    width: 100%;
+    box-sizing: border-box;
+    height: 60px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
 }

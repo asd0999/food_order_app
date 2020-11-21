@@ -142,6 +142,7 @@ export default class App extends Component {
                 updateCart={this.updateCart}
               />
               <CartContainer
+                user_id={this.state.user_id}
                 cartTotal={this.state.cartTotal}
                 cart={this.state.cart}
                 deleteCartItem={this.deleteCartItem}
