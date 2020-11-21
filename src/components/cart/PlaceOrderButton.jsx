@@ -7,17 +7,22 @@ export default class PlaceOrderButton extends Component {
   }
 
   handleClick() {
-    fetch("http://localhost:3030/orders/" + this.props.user_id + "/new", {
-      method: "POST",
-      body: JSON.stringify({
-        user_id: this.props.user_id,
-        user_name: this.props.user_name,
-        itemsInOrder: this.props.itemsInCart_id,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://zuber-eats-api.herokuapp.com/orders/" +
+        this.props.user_id +
+        "/new",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          user_id: this.props.user_id,
+          user_name: this.props.user_name,
+          itemsInOrder: this.props.itemsInCart_id,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((data) => {
         return data.json();
       })
