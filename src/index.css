@@ -211,6 +211,10 @@ body {
     padding: 15px;
 }
 
+.listings-row-element-menu .image {
+    cursor: pointer;
+}
+
 .menu-view {
     display: flex;
     flex-direction: row;
