@@ -45,17 +45,17 @@ export default class App extends Component {
   }
 
   sendRestaurant() {
-    console.log("hello");
-    console.log(this.state.restaurant_id);
+    // console.log("hello");
+    // console.log(this.state.restaurant_id);
     this.state.restaurants.forEach((r) => {
-      console.log(r._id);
+      // console.log(r._id);
       if (r._id === this.state.restaurant_id) {
-        console.log("found it!");
+        // console.log("found it!");
         console.log(this.state.restaurants.indexOf(r));
         const index = this.state.restaurants.indexOf(r);
         this.setState({ current_restaurant_index: index });
       } else {
-        console.log("didnt find");
+        // console.log("didnt find");
       }
     });
   }
