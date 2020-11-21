@@ -5,7 +5,6 @@ import Header from "./components/landingPage/Header";
 import LogIn from "./components/auth/LogIn";
 import Banner from "./components/landingPage/Banner";
 import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetContainer";
-import MenuItemWidget from "./components/restaurantMenu/MenuItemWidget";
 import CartContainer from "./components/cart/CartContainer";
 
 export default class App extends Component {
@@ -18,7 +17,8 @@ export default class App extends Component {
       restaurant_id: "",
       restaurant_name: "",
       current_restaurant_index: -1,
-      cart: []
+      cart: [],
+      cartTotal: 0,
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -58,18 +58,23 @@ export default class App extends Component {
     });
   }
 
-    updateCart(item) {
-      const updatedCart = [...this.state.cart, item]
-        this.setState({
-          cart: updatedCart
-        })
-    }
+  updateCart(item) {
+    const updatedCart = [...this.state.cart, item];
+    let updatedTotal = this.state.cartTotal;
+    updatedTotal += item.price;
 
-    emptyCart() {
-      this.setState({
-        cart: []
-      })
-    }
+    this.setState({
+      cart: updatedCart,
+      cartTotal: updatedTotal,
+    });
+  }
+
+  emptyCart() {
+    this.setState({
+      cart: [],
+      cartTotal: 0,
+    });
+  }
 
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
@@ -100,7 +105,7 @@ export default class App extends Component {
               restaurant_id={this.state.restaurant_id}
               user_id={this.state.user_id}
               updateStateRI={this.updateStateRI}
-              emptyCart = {this.emptyCart}
+              emptyCart={this.emptyCart}
             />
           </Route>
           {/* sign in */}
@@ -112,13 +117,22 @@ export default class App extends Component {
             path="/r/:restaurant_name"
             component={(MenuItemWidgetContainer, CartContainer)}
           >
-            <CartContainer cart={this.state.cart}/>
-            <MenuItemWidgetContainer
-              restaurant={
-                this.state.restaurants[this.state.current_restaurant_index]
-              }
-              updateCart={this.updateCart}
-            />
+            <h1 style={{ width: "100%", marginLeft: "40px" }}>
+              Welcome to{" "}
+              {this.state.restaurant_name && this.state.restaurant_name}
+            </h1>
+            <div className="menu-view">
+              <MenuItemWidgetContainer
+                restaurant={
+                  this.state.restaurants[this.state.current_restaurant_index]
+                }
+                updateCart={this.updateCart}
+              />
+              <CartContainer
+                cartTotal={this.state.cartTotal}
+                cart={this.state.cart}
+              />
+            </div>
           </Route>
         </Switch>
       </div>
