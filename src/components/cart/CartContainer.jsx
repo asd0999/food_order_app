@@ -11,7 +11,7 @@ class CartContainer extends Component {
             <th className="total" id="item-header">
               <h4>Item</h4>
               <div className="header-options-span">
-                <select className="header-options" name="" id="">
+                <select className="header-options">
                   <option value="">Delivery</option>
                   <option value="">Pickup</option>
                 </select>
@@ -42,7 +42,9 @@ class CartContainer extends Component {
           })}
           <CartTotal cartTotal={this.props.cartTotal} />
         </table>
-        {this.props.cart.length ? <PlaceOrderButton /> : null}
+        {this.props.cart.length ? (
+          <PlaceOrderButton user_id={this.props.user_id} />
+        ) : null}
       </div>
     );
   }
