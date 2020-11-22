@@ -11,12 +11,12 @@ export default class Header extends Component {
             <div class="brand-logo">
               <Link to="/">
                 <h1>
-                  Zuber<span>Eats</span>
+                  Food<span>Hubbs</span>
                 </h1>
               </Link>
             </div>
             <div class="currentDetails">
-              <div class="header-item">
+               {/* <div class="header-item">
                 <span className="header-options-span">
                   <select className="header-options" name="" id="">
                     <option value="">Delivery</option>
@@ -26,7 +26,7 @@ export default class Header extends Component {
                 <div class="header-item">
                   <span> Location? </span>
                 </div>
-              </div>
+              </div> 
             </div>
             <div class="search-bar">
               <div class="header-item">
@@ -38,13 +38,20 @@ export default class Header extends Component {
                     name="search"
                   />
                 </span>
-              </div>
+              </div> */}
               <div class="header-item">
                 <span>
                   {this.props.user_name ? (
                     "Welcome " + this.props.user_name
                   ) : (
-                    <NavLink href="/sign-in">Sign in</NavLink>
+                    null
+                  )}
+                </span>
+                <span>
+                  {this.props.user_name ? (
+                    <NavLink href="/">Sign Out</NavLink>
+                  ) : (
+                    <Link to="/sign-in">Sign in</Link>
                   )}
                 </span>
               </div>
