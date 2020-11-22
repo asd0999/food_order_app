@@ -17,6 +17,7 @@ export default class PlaceOrderButton extends Component {
           user_id: this.props.user_id,
           user_name: this.props.user_name,
           itemsInOrder: this.props.itemsInCart_id,
+          delivery: this.props.delivery,
         }),
         headers: {
           "Content-Type": "application/json",

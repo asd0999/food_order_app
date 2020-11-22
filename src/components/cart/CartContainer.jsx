@@ -3,6 +3,23 @@ import CartTotal from "./CartTotal";
 import PlaceOrderButton from "./PlaceOrderButton";
 
 class CartContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    // console.log(typeof e.target.value);
+    let val = true;
+    if (e.target.value === "false") {
+      val = false;
+    } else {
+      val = true;
+    }
+    // console.log(typeof val);
+    this.props.updateDelivery(val);
+  }
+
   render() {
     return (
       <div className="cart-container">
@@ -11,9 +28,9 @@ class CartContainer extends Component {
             <th className="total" id="item-header">
               <h4>Item</h4>
               <div className="header-options-span">
-                <select className="header-options">
-                  <option value="">Delivery</option>
-                  <option value="">Pickup</option>
+                <select onChange={this.handleChange} className="header-options">
+                  <option value="true">Delivery</option>
+                  <option value="false">Pickup</option>
                 </select>
               </div>
             </th>
@@ -49,6 +66,7 @@ class CartContainer extends Component {
             cart={this.props.cart}
             itemsInCart_id={this.props.itemsInCart_id}
             emptyCart={this.props.emptyCart}
+            delivery={this.props.delivery}
           />
         ) : null}
       </div>
