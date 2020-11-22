@@ -69,7 +69,7 @@ handleClick() {
                   )}
                 </span>
                 <div>
-                  <Link onClick={this.handleClick} to="/">Account Details</Link> 
+                  <Link onClick={this.handleClick} to={"/u/" + this.props.user_id}>My Account</Link> 
                 </div>
               </div>
             </div>

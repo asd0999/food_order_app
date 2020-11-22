@@ -6,6 +6,8 @@ import LogIn from "./components/auth/LogIn";
 import Banner from "./components/landingPage/Banner";
 import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetContainer";
 import CartContainer from "./components/cart/CartContainer";
+import AccountDetails from "./components/MyAccount/AccountDetails";
+import PastOrders from "./components/MyAccount/PastOrders";
 
 export default class App extends Component {
   constructor(props) {
@@ -31,7 +33,7 @@ export default class App extends Component {
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.deleteCartItem = this.deleteCartItem.bind(this);
-    this.getpastOrders = this.getPastOrders.bind(this);
+    this.getPastOrders = this.getPastOrders.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
   }
 
@@ -115,6 +117,7 @@ export default class App extends Component {
           return data.json();
         })
         .then((parsedData) => {
+          console.log(parsedData)
           this.setState({
             userDetails: parsedData,
           });
@@ -127,6 +130,7 @@ export default class App extends Component {
             return data.json();
           })
           .then((parsedData) => {
+            console.log(parsedData)
             this.setState({
               pastOrders: parsedData,
             });
@@ -200,6 +204,10 @@ export default class App extends Component {
                 emptyCart={this.emptyCart}
               />
             </div>
+          </Route>
+          <Route exact path="/u/:user_id" component={(AccountDetails, PastOrders)}>
+          <AccountDetails userDetails={this.state.userDetails} />
+          <PastOrders pastOrders={this.state.pastOrders}/>
           </Route>
         </Switch>
       </div>
