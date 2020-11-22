@@ -23,8 +23,8 @@ export default class App extends Component {
       cartTotal: 0,
       itemsInCart_id: [],
       userDetails: [],
-      pastOrders: []
-      
+      pastOrders: [],
+      delivery: true,
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -35,6 +35,7 @@ export default class App extends Component {
     this.deleteCartItem = this.deleteCartItem.bind(this);
     this.getPastOrders = this.getPastOrders.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
+    this.updateDelivery = this.updateDelivery.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -95,6 +96,7 @@ export default class App extends Component {
       cart: [],
       cartTotal: 0,
       itemsInCart_id: [],
+      delivery: true,
     });
   }
 
@@ -110,34 +112,41 @@ export default class App extends Component {
     });
   }
 
+  updateDelivery(val) {
+    this.setState({
+      delivery: val,
+    });
+  }
 
   getUserDetails() {
     fetch("https://zuber-eats-api.herokuapp.com/users/" + this.state.user_id)
-        .then((data) => {
-          return data.json();
-        })
-        .then((parsedData) => {
-          console.log(parsedData)
-          this.setState({
-            userDetails: parsedData,
-          });
+      .then((data) => {
+        return data.json();
+      })
+      .then((parsedData) => {
+        console.log(parsedData);
+        this.setState({
+          userDetails: parsedData,
         });
-    }
-  
-    getPastOrders() {
-      fetch("https://zuber-eats-api.herokuapp.com/orders/" + this.state.user_id + "/history")
-          .then((data) => {
-            return data.json();
-          })
-          .then((parsedData) => {
-            console.log(parsedData)
-            this.setState({
-              pastOrders: parsedData,
-            });
-          });
-      }
+      });
+  }
 
-
+  getPastOrders() {
+    fetch(
+      "https://zuber-eats-api.herokuapp.com/orders/" +
+        this.state.user_id +
+        "/history"
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((parsedData) => {
+        console.log(parsedData);
+        this.setState({
+          pastOrders: parsedData,
+        });
+      });
+  }
 
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
@@ -202,12 +211,18 @@ export default class App extends Component {
                 deleteCartItem={this.deleteCartItem}
                 itemsInCart_id={this.state.itemsInCart_id}
                 emptyCart={this.emptyCart}
+                updateDelivery={this.updateDelivery}
+                delivery={this.state.delivery}
               />
             </div>
           </Route>
-          <Route exact path="/u/:user_id" component={(AccountDetails, PastOrders)}>
-          <AccountDetails userDetails={this.state.userDetails} />
-          <PastOrders pastOrders={this.state.pastOrders}/>
+          <Route
+            exact
+            path="/u/:user_id"
+            component={(AccountDetails, PastOrders)}
+          >
+            <AccountDetails userDetails={this.state.userDetails} />
+            <PastOrders pastOrders={this.state.pastOrders} />
           </Route>
         </Switch>
       </div>
