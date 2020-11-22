@@ -8,6 +8,7 @@ import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetC
 import CartContainer from "./components/cart/CartContainer";
 import AccountDetails from "./components/MyAccount/AccountDetails";
 import PastOrders from "./components/MyAccount/PastOrders";
+import RestaurantInfo from "./components/landingPage/RestaurantInfo";
 
 export default class App extends Component {
   constructor(props) {
@@ -18,6 +19,11 @@ export default class App extends Component {
       user_name: "",
       restaurant_id: "",
       restaurant_name: "",
+      restaurant_street: "",
+      restaurant_zip: "",
+      restaurant_phone: "",
+      restaurant_img: "",
+      restaurant_apt: "",
       current_restaurant_index: -1,
       cart: [],
       cartTotal: 0,
@@ -44,10 +50,15 @@ export default class App extends Component {
       user_name: un,
     });
   }
-  updateStateRI(ri, rn) {
+  updateStateRI(ri, rn, rStreet, rZip, rPhone, rImg, rApt) {
     this.setState({
       restaurant_id: ri,
       restaurant_name: rn,
+      restaurant_street: rStreet,
+      restaurant_zip: rZip,
+      restaurant_phone: rPhone,
+      restaurant_img: rImg,
+      restaurant_img: rApt,
     });
     setTimeout(this.sendRestaurant, 100);
   }
@@ -59,7 +70,6 @@ export default class App extends Component {
       // console.log(r._id);
       if (r._id === this.state.restaurant_id) {
         // console.log("found it!");
-        console.log(this.state.restaurants.indexOf(r));
         const index = this.state.restaurants.indexOf(r);
         this.setState({ current_restaurant_index: index });
       } else {
@@ -192,10 +202,14 @@ export default class App extends Component {
             path="/r/:restaurant_name"
             component={(MenuItemWidgetContainer, CartContainer)}
           >
-            <h1 style={{ width: "100%", marginLeft: "40px" }}>
-              Welcome to{" "}
-              {this.state.restaurant_name && this.state.restaurant_name}
-            </h1>
+            <RestaurantInfo
+              restaurant_name={this.state.restaurant_name}
+              restaurant_street={this.state.restaurant_street}
+              restaurant_zip={this.state.restaurant_zip}
+              restaurant_phone={this.state.restaurant_phone}
+              restaurant_img={this.state.restaurant_img}
+              restaurant_apt={this.state.restaurant_apt}
+            />
             <div className="menu-view">
               <MenuItemWidgetContainer
                 restaurant={
