@@ -15,7 +15,11 @@ export default class PastOrders extends Component {
             // console.log("my order", order.itemsInOrder);
             return (
               <>
-                <h3>Order Date: {order.createdAt}</h3>
+                <h3>
+                  Order Date: {order.createdAt.slice(0, 10)}
+                  {" Time: "}
+                  {order.createdAt.slice(12, 16)}
+                </h3>
                 {order.itemsInOrder.map((item) => {
                   //   console.log("indvidiual item", item.item_name);
                   return (
