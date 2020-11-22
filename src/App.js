@@ -20,6 +20,9 @@ export default class App extends Component {
       cart: [],
       cartTotal: 0,
       itemsInCart_id: [],
+      userDetails: [],
+      pastOrders: []
+      
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -28,6 +31,8 @@ export default class App extends Component {
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.deleteCartItem = this.deleteCartItem.bind(this);
+    this.getpastOrders = this.getPastOrders.bind(this);
+    this.getUserDetails = this.getUserDetails.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -103,6 +108,33 @@ export default class App extends Component {
     });
   }
 
+
+  getUserDetails() {
+    fetch("https://zuber-eats-api.herokuapp.com/users/" + this.state.user_id)
+        .then((data) => {
+          return data.json();
+        })
+        .then((parsedData) => {
+          this.setState({
+            userDetails: parsedData,
+          });
+        });
+    }
+  
+    getPastOrders() {
+      fetch("https://zuber-eats-api.herokuapp.com/orders/" + this.state.user_id + "/history")
+          .then((data) => {
+            return data.json();
+          })
+          .then((parsedData) => {
+            this.setState({
+              pastOrders: parsedData,
+            });
+          });
+      }
+
+
+
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
       .then((data) => {
@@ -122,6 +154,9 @@ export default class App extends Component {
         <Header
           user_name={this.state.user_name}
           forgetRestaurant={this.forgetRestaurant}
+          user_id={this.state.user_id}
+          getUserDetails={this.getUserDetails}
+          getPastOrders={this.getPastOrders}
         />
         {/* landing page */}
         <Switch>

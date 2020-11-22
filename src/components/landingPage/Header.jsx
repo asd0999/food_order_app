@@ -3,6 +3,20 @@ import { NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+
+handleClick() {
+  this.props.getPastOrders()
+  this.props.getUserDetails()
+}
+
+
   render() {
     return (
       <div>
@@ -54,6 +68,9 @@ export default class Header extends Component {
                     <Link to="/sign-in">Sign in</Link>
                   )}
                 </span>
+                <div>
+                  <Link onClick={this.handleClick} to="/">Account Details</Link> 
+                </div>
               </div>
             </div>
           </div>
