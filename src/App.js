@@ -6,6 +6,8 @@ import LogIn from "./components/auth/LogIn";
 import Banner from "./components/landingPage/Banner";
 import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetContainer";
 import CartContainer from "./components/cart/CartContainer";
+import AccountDetails from "./components/MyAccount/AccountDetails";
+import PastOrders from "./components/MyAccount/PastOrders";
 
 export default class App extends Component {
   constructor(props) {
@@ -20,6 +22,9 @@ export default class App extends Component {
       cart: [],
       cartTotal: 0,
       itemsInCart_id: [],
+      userDetails: [],
+      pastOrders: []
+      
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -28,6 +33,8 @@ export default class App extends Component {
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.deleteCartItem = this.deleteCartItem.bind(this);
+    this.getPastOrders = this.getPastOrders.bind(this);
+    this.getUserDetails = this.getUserDetails.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -103,6 +110,35 @@ export default class App extends Component {
     });
   }
 
+
+  getUserDetails() {
+    fetch("https://zuber-eats-api.herokuapp.com/users/" + this.state.user_id)
+        .then((data) => {
+          return data.json();
+        })
+        .then((parsedData) => {
+          console.log(parsedData)
+          this.setState({
+            userDetails: parsedData,
+          });
+        });
+    }
+  
+    getPastOrders() {
+      fetch("https://zuber-eats-api.herokuapp.com/orders/" + this.state.user_id + "/history")
+          .then((data) => {
+            return data.json();
+          })
+          .then((parsedData) => {
+            console.log(parsedData)
+            this.setState({
+              pastOrders: parsedData,
+            });
+          });
+      }
+
+
+
   componentDidMount() {
     fetch("https://zuber-eats-api.herokuapp.com/restaurants/")
       .then((data) => {
@@ -122,6 +158,9 @@ export default class App extends Component {
         <Header
           user_name={this.state.user_name}
           forgetRestaurant={this.forgetRestaurant}
+          user_id={this.state.user_id}
+          getUserDetails={this.getUserDetails}
+          getPastOrders={this.getPastOrders}
         />
         {/* landing page */}
         <Switch>
@@ -165,6 +204,10 @@ export default class App extends Component {
                 emptyCart={this.emptyCart}
               />
             </div>
+          </Route>
+          <Route exact path="/u/:user_id" component={(AccountDetails, PastOrders)}>
+          <AccountDetails userDetails={this.state.userDetails} />
+          <PastOrders pastOrders={this.state.pastOrders}/>
           </Route>
         </Switch>
       </div>
