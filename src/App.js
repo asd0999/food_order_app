@@ -150,9 +150,13 @@ export default class App extends Component {
     let updatedTotal = this.state.cartTotal - price;
     console.log("price", typeof price);
 
+    const updatedItemsInCart = this.state.itemsInCart_id;
+    updatedItemsInCart.splice(index, 1);
+
     this.setState({
       cart: updated,
       cartTotal: updatedTotal,
+      itemsInCart_id: updatedItemsInCart,
     });
   }
 
@@ -327,6 +331,7 @@ export default class App extends Component {
                 closeModal={this.closeModal}
                 showModal={this.showModal}
                 restaurant_name={this.state.restaurant_name}
+                itemsInOrder={this.state.pastOrders[0]}
               />
             </div>
           </Route>
