@@ -477,6 +477,9 @@ select {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   padding: 2%;
   line-height: 120%;
+  text-align: center;
+  background-color: rgb(103, 180, 103);
+  opacity: 0.8;
 }
 h1 {
   padding-bottom: 15px;

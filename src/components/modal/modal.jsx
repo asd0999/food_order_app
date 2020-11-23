@@ -8,7 +8,15 @@ export default class modal extends Component {
         <div id="modal-textbox">
           <p>Your order has been placed!</p>
           <div id="modal-footer">
-            <a id="close" href="#"></a>
+            <a
+              onClick={() => {
+                this.props.closeModal();
+              }}
+              id="close"
+              href="/"
+            >
+              close
+            </a>
           </div>
         </div>
       </div>

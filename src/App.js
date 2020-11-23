@@ -197,7 +197,7 @@ export default class App extends Component {
           getUserDetails={this.getUserDetails}
           getPastOrders={this.getPastOrders}
         />
-        {this.state.showModal ? <Modal /> : null}
+        {this.state.showModal ? <Modal closeModal={this.closeModal} /> : null}
         <Switch>
           {/* landing page */}
           <Route exact path="/" component={Welcome}>
