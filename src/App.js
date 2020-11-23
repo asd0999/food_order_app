@@ -59,7 +59,7 @@ export default class App extends Component {
       restaurant_zip: rZip,
       restaurant_phone: rPhone,
       restaurant_img: rImg,
-      restaurant_img: rApt,
+      restaurant_apt: rApt,
     });
     setTimeout(this.sendRestaurant, 100);
   }
