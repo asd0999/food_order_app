@@ -5,18 +5,32 @@ body {
     font-family: sans-serif;
 }
 
-.header-container {
-    display: flex;
-    align-items: center;
-    width: calc(100% - 120px);
-    margin: auto;
+a {
+    text-decoration: none;
+}
+
+button,
+a {
+    cursor: pointer;
 }
 
 
 /* HEADER */
 
+.header-container {
+    display: flex;
+    background-color: rgba(54, 31, 4, 0.9);
+    color: white;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .brand-logo h1 {
     font-weight: 300;
+    color: wheat;
 }
 
 .brand-logo h1 span {
@@ -24,63 +38,145 @@ body {
     color: #07cf6f;
 }
 
-.search-bar {
-    margin-left: auto;
-}
 
-.header-item {
+/* .search-bar {
+    margin-left: auto;
+  } */
+
+.header-item-container {
     padding-left: 5rem;
     letter-spacing: 0.6px;
     display: flex;
+    min-width: 360px;
+    width: 30%;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    color: wheat;
 }
 
-.currentDetails,
+.header-item a {
+    color: wheat;
+}
+
+
+/* .currentDetails,
 .search-bar {
     display: flex;
-}
+} */
 
-.header-options {
+
+/* .header-options {
     padding: 3px;
     border-radius: 3px;
-}
+} */
 
-.sign-in-button {
-    background-color: transparent;
+#sign-in-button,
+#my-account-button {
+    background-color: wheat;
     border: none;
-    font-size: inherit;
+    padding: 0 10px;
+    width: 80px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
-.header-search {
-    padding: 9px;
-    /* border-radius: 5px; */
-    border: 1.75px solid black;
+#my-account-button {
+    width: 120px;
 }
+
+#sign-out-button {
+    background-color: transparent;
+    border: 2px solid wheat;
+    color: wheat;
+    width: 80px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.greeting {
+    font-size: 20px;
+}
+
+
+/* .header-search {
+    padding: 9px;
+    border-radius: 5px;
+    border: 1.75px solid black;
+} */
 
 
 /* BANNER */
 
 .banner-container {
-    background-color: green;
-    display: flex;
+    background-color: rgb(248, 241, 228);
     width: 100%;
-    height: 20%;
-    justify-content: center;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.banner-inner {
-    padding: 20px 0 20px 0;
-    width: 60%;
-    /* height: 60%; */
-    display: inline-block;
+.restaurant-details-container {
+    background-color: rgb(248, 241, 228);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 60px;
 }
 
-.banner-inner-img {
-    object-fit: cover;
+.restaurant-details-container h1 {
+    color: rgba(54, 31, 4, 0.9);
+}
+
+.restaurant-details {
+    background-color: rgb(248, 241, 228);
+    width: 370px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+}
+
+.deets {
+    color: wheat;
+    background-color: rgba(54, 31, 4, 0.9);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+
+/* .banner-inner {
+  padding: 20px 0 20px 0;
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+} */
+
+.banner-icons {
+    width: 60px;
+}
+
+
+/* welcome image */
+
+.welcome-image-container {
     width: 100%;
-    margin: 0 auto;
-    border-radius: 20px;
+    height: 800px;
+    background-image: url("https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -97,20 +193,23 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 100%;
     scroll-snap-align: start;
-    /* margin-left: 25px; */
+    margin-top: 2rem;
 }
 
 .listings-row-element {
     width: calc(20% - 20px);
+    min-width: 240px;
     margin-top: 2rem;
-    border: 1px solid black;
+    /* border: 1px solid grey; */
+    box-shadow: 0px 2px 4px grey;
     border-radius: 20px;
     padding: 15px;
+    margin: 16px 16px;
 }
 
 .text-lower {
@@ -124,8 +223,8 @@ body {
 .image {
     height: 240px;
     overflow: hidden;
-    border: 1px black solid;
     border-radius: 20px;
+    box-shadow: 0px 2px 4px grey;
 }
 
 .image img {
@@ -165,18 +264,30 @@ body {
 
 /* sign-in-items */
 
+.sign-in-container {
+    background-image: url(https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 800px;
+    opacity: 0.5;
+}
+
 .sign-in-items {
-    margin-top: 60px;
+    margin-top: -720px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
+    position: absolute;
 }
 
 .users {
-    background-color: rgb(231, 229, 222);
+    background-color: rgb(248, 241, 228);
     text-align: center;
     width: 300px;
     height: 150px;
     border-radius: 20px;
+    box-shadow: 0px 2px 4px grey;
+    color: rgba(54, 31, 4, 0.9);
 }
 
 .users button {
@@ -184,21 +295,39 @@ body {
     width: 100px;
     height: 40px;
     border-radius: 10px;
-    background-color: rgb(197, 195, 187);
+    background-color: wheat;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px grey;
+    border: none;
+    color: rgba(54, 31, 4, 0.9);
 }
 
 .users button:hover {
-    background-color: rgb(129, 129, 129);
-    color: white;
+    border: none;
+    background-color: rgba(54, 31, 4, 0.9);
+    color: wheat;
 }
 
 
 /* menu-items */
 
+.listings-col-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    scroll-snap-align: start;
+    margin-top: 2rem;
+}
+
 .listings-row-menu {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 0 40px;
     width: 70%;
     height: 440px;
@@ -206,10 +335,12 @@ body {
 
 .listings-row-element-menu {
     width: calc(30% - 20px);
+    min-width: 240px;
     margin-top: 2rem;
-    border: 1px solid black;
+    box-shadow: 0px 2px 4px grey;
     border-radius: 20px;
     padding: 15px;
+    margin: 8px 6px;
 }
 
 .listings-row-element-menu .image {
@@ -272,12 +403,14 @@ th {
 
 .total {
     padding: 0 20px;
-    background-color: rgb(231, 229, 222);
+    /* background-color: rgb(231, 229, 222); */
+    background-color: rgb(248, 241, 228);
     height: 61px;
 }
 
 th {
-    background-color: rgb(231, 229, 222);
+    /* background-color: rgb(231, 229, 222); */
+    background-color: rgb(248, 241, 228);
 }
 
 .item-desc {
@@ -302,7 +435,8 @@ th {
 
 .order-button-container button {
     border: none;
-    background-color: dodgerblue;
+    /* background-color: dodgerblue; */
+    background-color: #1cb146;
     width: 100%;
     box-sizing: border-box;
     height: 60px;
@@ -310,4 +444,28 @@ th {
     font-size: 20px;
     color: white;
     cursor: pointer;
+}
+
+
+/* RESTAURANT INFO SECTION */
+
+.restaurant-card {
+    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvxZ2RfEwOmxlS7AgZgmXdgovZ_ecS0xswqA&usqp=CAU"); */
+    background-color: wheat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    text-align: center;
+    color: gray;
+}
+
+select {
+    border: none;
+    height: 28px;
+    width: 100px;
+    background-color: rgba(54, 31, 4, 0.9);
+    color: wheat;
+    font-size: 16px;
+    padding: 2px 6px;
+    border-radius: 4px;
 }

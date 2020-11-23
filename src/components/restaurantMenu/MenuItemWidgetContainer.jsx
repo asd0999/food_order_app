@@ -5,7 +5,7 @@ export default class MenuItemWidgetContainer extends Component {
   render() {
     return (
       <div className="listings-row-menu">
-        <div className="listings-col">
+        <div className="listings-col-menu">
           {this.props.restaurant &&
             this.props.restaurant.menu.map((item) => {
               return (

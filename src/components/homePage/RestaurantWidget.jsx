@@ -11,11 +11,16 @@ export default class RestaurantWidget extends Component {
   handleClick() {
     const ri = this.props.item._id;
     const rn = this.props.item.restaurantName;
-    this.props.updateStateRI(ri, rn);
+    const rStreet = this.props.item.streetname;
+    const rZip = this.props.item.zipcode;
+    const rPhone = this.props.item.phoneNumber;
+    const rImg = this.props.item.imgUrl;
+    const rApt = this.props.item.apartmentNumber;
+    this.props.updateStateRI(ri, rn, rStreet, rZip, rPhone, rImg, rApt);
   }
 
   componentDidMount() {
-    this.props.emptyCart()
+    this.props.emptyCart();
   }
 
   render() {
