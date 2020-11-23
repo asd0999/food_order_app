@@ -5,10 +5,19 @@ export default class PastOrders extends Component {
     return (
       <div className="past-orders-container">
         <h2>Past Orders</h2>
-        {this.props.pastOrders.map((order) => {
+        {this.props.pastOrders.map((order, index) => {
           return (
-            <div className="one-order">
-              <h3 className="restaurant-name">{order.restaurant_name}</h3>
+            <div key={index} className="one-order">
+              {index ? (
+                <h3 className="restaurant-name">{order.restaurant_name}</h3>
+              ) : (
+                <h3 className="restaurant-name last-order">
+                  {order.restaurant_name}
+                  <button className="deets" id="update-order">
+                    Update
+                  </button>
+                </h3>
+              )}
               <div className="past-order-date-bar">
                 Date: {order.createdAt.slice(0, 10)}{" "}
                 {order.createdAt.slice(12, 16)}{" "}
