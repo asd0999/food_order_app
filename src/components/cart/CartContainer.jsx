@@ -67,6 +67,7 @@ class CartContainer extends Component {
             itemsInCart_id={this.props.itemsInCart_id}
             emptyCart={this.props.emptyCart}
             delivery={this.props.delivery}
+            restaurant_name={this.props.restaurant_name}
           />
         ) : null}
       </div>

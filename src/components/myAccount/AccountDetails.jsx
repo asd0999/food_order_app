@@ -3,11 +3,22 @@ import React, { Component } from "react";
 export default class AccountDetails extends Component {
   render() {
     return (
-      <div>
+      <div className="account-details">
         <h2>Account Details</h2>
-        <h3>Username: {this.props.userDetails.username} </h3>
-        <h3>Phone Number: {this.props.userDetails.phoneNumber} </h3>
-        <h3>Email: {this.props.userDetails.email} </h3>
+        <table>
+          <tr>
+            <td>Username </td>
+            <td>{this.props.userDetails.username} </td>
+          </tr>
+          <tr>
+            <td>Phone Number </td>
+            <td>{this.props.userDetails.phoneNumber} </td>
+          </tr>
+          <tr>
+            <td>Email </td>
+            <td>{this.props.userDetails.email} </td>
+          </tr>
+        </table>
       </div>
     );
   }
