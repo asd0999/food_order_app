@@ -69,6 +69,7 @@ class CartContainer extends Component {
             delivery={this.props.delivery}
             showModal={this.props.showModal}
             closeModal={this.props.closeModal}
+            restaurant_name={this.props.restaurant_name}
           />
         ) : null}
       </div>

@@ -18,6 +18,7 @@ export default class PlaceOrderButton extends Component {
           user_name: this.props.user_name,
           itemsInOrder: this.props.itemsInCart_id,
           delivery: this.props.delivery,
+          restaurant_name: this.props.restaurant_name,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -42,3 +43,5 @@ export default class PlaceOrderButton extends Component {
     );
   }
 }
+
+// this is test

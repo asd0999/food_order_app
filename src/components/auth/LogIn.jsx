@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Welcome from "../landingPage/Welcome";
 
 export default class LogIn extends Component {
   constructor(props) {
