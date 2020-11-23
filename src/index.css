@@ -586,3 +586,8 @@ select {
     height: 36px;
     right: -6px;
 }
+
+.myaccount-container {
+    display: flex;
+    justify-content: space-around;
+}

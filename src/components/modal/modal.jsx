@@ -12,6 +12,7 @@ export default class modal extends Component {
             className="modal-button"
             onClick={() => {
               this.props.closeModal();
+              this.props.emptyCart();
             }}
           >
             OK
