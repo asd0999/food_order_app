@@ -74,6 +74,7 @@ class CartUpdateContainer extends Component {
           showModal={this.props.showModal}
           closeModal={this.props.closeModal}
           restaurant_name={this.props.restaurant_name}
+          lastOrder={this.props.itemsInOrder}
         />
       </div>
     );
