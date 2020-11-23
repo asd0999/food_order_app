@@ -465,32 +465,34 @@ select {
   height: 100%;
   width: 100%;
   overflow: auto;
+  border-radius: 10px;
 }
 
 #modal-textbox {
   font-family: "Arial";
   background-color: white;
-  height: 350px;
-  width: 550px;
-  border-radius: 2px;
+  height: 30%;
+  width: 50%;
+  border-radius: 10px;
   margin: 150px auto;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   padding: 2%;
   line-height: 120%;
   text-align: center;
   background-color: rgb(103, 180, 103);
   opacity: 0.8;
+  color: white;
 }
-h1 {
-  padding-bottom: 15px;
+#modal-textbox p {
+  padding-bottom: 10px;
 }
-.modal-buttons {
+.modal-button {
   padding: 14px 18px;
-  background-color: #677996;
   border: none;
   outline: none;
-  border-radius: 3px;
-  color: white;
+  border-radius: 10px;
+  color: green;
   font-family: "Arial";
   cursor: pointer;
+  background-color: white;
 }
