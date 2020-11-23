@@ -197,7 +197,9 @@ export default class App extends Component {
           getUserDetails={this.getUserDetails}
           getPastOrders={this.getPastOrders}
         />
-        {this.state.showModal ? <Modal closeModal={this.closeModal} /> : null}
+        {this.state.showModal ? (
+          <Modal closeModal={this.closeModal} emptyCart={this.emptyCart} />
+        ) : null}
         <Switch>
           {/* landing page */}
           <Route exact path="/" component={Welcome}>
@@ -258,7 +260,6 @@ export default class App extends Component {
                 closeModal={this.closeModal}
                 showModal={this.showModal}
                 restaurant_name={this.state.restaurant_name}
-
               />
             </div>
           </Route>
@@ -269,8 +270,10 @@ export default class App extends Component {
             path="/u/:user_id"
             component={(Banner, AccountDetails, PastOrders)}
           >
-            <AccountDetails userDetails={this.state.userDetails} />
-            <PastOrders pastOrders={this.state.pastOrders} />
+            <div className="myaccount-container">
+              <AccountDetails userDetails={this.state.userDetails} />
+              <PastOrders pastOrders={this.state.pastOrders} />
+            </div>
           </Route>
         </Switch>
       </>
