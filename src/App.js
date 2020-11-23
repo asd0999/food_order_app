@@ -239,6 +239,7 @@ export default class App extends Component {
                 emptyCart={this.emptyCart}
                 updateDelivery={this.updateDelivery}
                 delivery={this.state.delivery}
+                restaurant_name={this.state.restaurant_name}
               />
             </div>
           </Route>
