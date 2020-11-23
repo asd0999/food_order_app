@@ -59,7 +59,7 @@ export default class App extends Component {
       restaurant_zip: rZip,
       restaurant_phone: rPhone,
       restaurant_img: rImg,
-      restaurant_img: rApt,
+      restaurant_apt: rApt,
     });
     setTimeout(this.sendRestaurant, 100);
   }
@@ -239,6 +239,7 @@ export default class App extends Component {
                 emptyCart={this.emptyCart}
                 updateDelivery={this.updateDelivery}
                 delivery={this.state.delivery}
+                restaurant_name={this.state.restaurant_name}
               />
             </div>
           </Route>
