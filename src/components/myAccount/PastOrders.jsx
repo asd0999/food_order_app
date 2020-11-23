@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class PastOrders extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
+
+  // handleClick() {}
+
   render() {
     return (
       <div className="past-orders-container">
@@ -13,9 +21,17 @@ export default class PastOrders extends Component {
               ) : (
                 <h3 className="restaurant-name last-order">
                   {order.restaurant_name}
-                  <button className="deets" id="update-order">
-                    Update
-                  </button>
+                  <Link to={"/r/" + order.restaurant_name + "/editorder"}>
+                    <button
+                      onClick={() => {
+                        this.props.populateRestaurant(order.restaurant_name);
+                      }}
+                      className="deets"
+                      id="update-order"
+                    >
+                      Update
+                    </button>
+                  </Link>
                 </h3>
               )}
               <div className="past-order-date-bar">
