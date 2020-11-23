@@ -31,6 +31,7 @@ export default class PlaceOrderButton extends Component {
         console.log(parsedData);
       });
     this.props.emptyCart();
+    this.props.showModal();
   }
 
   render() {
