@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import RestaurantWidgetContainer from "./components/landingPage/RestaurantWidgetContainer";
-import Header from "./components/landingPage/Header";
+import RestaurantWidgetContainer from "./components/homePage/RestaurantWidgetContainer";
+import Header from "./components/homePage/Header";
 import LogIn from "./components/auth/LogIn";
-import Banner from "./components/landingPage/Banner";
+import Banner from "./components/homePage/Banner";
 import MenuItemWidgetContainer from "./components/restaurantMenu/MenuItemWidgetContainer";
 import CartContainer from "./components/cart/CartContainer";
-import AccountDetails from "./components/MyAccount/AccountDetails";
-import PastOrders from "./components/MyAccount/PastOrders";
-import RestaurantInfo from "./components/landingPage/RestaurantInfo";
+import AccountDetails from "./components/myAccount/AccountDetails";
+import PastOrders from "./components/myAccount/PastOrders";
+import RestaurantInfo from "./components/homePage/RestaurantInfo";
+import Welcome from "./components/landingPage/Welcome";
 
 export default class App extends Component {
   constructor(props) {
@@ -173,7 +174,7 @@ export default class App extends Component {
   render() {
     console.log(this.state.restaurants);
     return (
-      <div>
+      <>
         <Header
           user_name={this.state.user_name}
           forgetRestaurant={this.forgetRestaurant}
@@ -181,9 +182,22 @@ export default class App extends Component {
           getUserDetails={this.getUserDetails}
           getPastOrders={this.getPastOrders}
         />
-        {/* landing page */}
         <Switch>
-          <Route exact path="/" component={(Banner, RestaurantWidgetContainer)}>
+          {/* landing page */}
+          <Route exact path="/" component={Welcome}>
+            <Welcome />
+          </Route>
+
+          {/* sign in */}
+          <Route exact path="/sign-in" component={LogIn}>
+            <LogIn updateStateUI={this.updateStateUI} />{" "}
+          </Route>
+          {/* home page */}
+          <Route
+            exact
+            path="/home"
+            component={(Banner, RestaurantWidgetContainer)}
+          >
             <Banner />
             <RestaurantWidgetContainer
               restaurants={this.state.restaurants}
@@ -193,14 +207,12 @@ export default class App extends Component {
               emptyCart={this.emptyCart}
             />
           </Route>
-          {/* sign in */}
-          <Route exact path="/sign-in" component={LogIn}>
-            <LogIn updateStateUI={this.updateStateUI} />{" "}
-          </Route>
+
+          {/* menu view */}
           <Route
             exact
             path="/r/:restaurant_name"
-            component={(MenuItemWidgetContainer, CartContainer)}
+            component={(Banner, MenuItemWidgetContainer, CartContainer)}
           >
             <RestaurantInfo
               restaurant_name={this.state.restaurant_name}
@@ -230,16 +242,18 @@ export default class App extends Component {
               />
             </div>
           </Route>
+
+          {/* my account */}
           <Route
             exact
             path="/u/:user_id"
-            component={(AccountDetails, PastOrders)}
+            component={(Banner, AccountDetails, PastOrders)}
           >
             <AccountDetails userDetails={this.state.userDetails} />
             <PastOrders pastOrders={this.state.pastOrders} />
           </Route>
         </Switch>
-      </div>
+      </>
     );
   }
 }

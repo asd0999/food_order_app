@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Welcome from "../landingPage/Welcome";
 
 export default class LogIn extends Component {
   constructor(props) {
@@ -29,24 +30,27 @@ export default class LogIn extends Component {
 
   render() {
     return (
-      <div className="sign-in-items">
-        {this.state.users.map((user) => {
-          return (
-            <div className="users">
-              <h1>{user.username}</h1>
-              <Link to="/">
-                <button
-                  onClick={() => {
-                    this.props.updateStateUI(user._id, user.username);
-                  }}
-                >
-                  Login
-                </button>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      <>
+        <div className="sign-in-container"></div>
+        <div className="sign-in-items">
+          {this.state.users.map((user) => {
+            return (
+              <div className="users">
+                <h1>{user.username}</h1>
+                <Link to="/home">
+                  <button
+                    onClick={() => {
+                      this.props.updateStateUI(user._id, user.username);
+                    }}
+                  >
+                    Login
+                  </button>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </>
     );
   }
 }
