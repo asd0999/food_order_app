@@ -48,7 +48,7 @@ class CartUpdateContainer extends Component {
               <tr>
                 <td className="th-item">
                   <div className="name-and-delete-div">
-                    {item.item_name}
+                    {item.item_name ? item.item_name : item.name}
                     <button
                       onClick={() =>
                         this.props.deleteCartItem(item.price, index)

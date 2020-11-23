@@ -11,9 +11,9 @@ export default class UpdateOrderButton extends Component {
     fetch(
       "https://zuber-eats-api.herokuapp.com/orders/" +
         this.props.user_id +
-        "/new",
+        "/edit",
       {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify({
           user_id: this.props.user_id,
           user_name: this.props.user_name,
@@ -49,17 +49,17 @@ export default class UpdateOrderButton extends Component {
         console.log(parsedData);
       });
     // this.props.emptyCart();
-    // this.props.showModal();
+    this.props.showModal();
   }
 
   render() {
     return (
       <div className="order-button-container">
         <button id="update-button" onClick={this.handleClickUpdate}>
-          Update order!
+          Update order
         </button>
         <button id="delete-button" onClick={this.handleClickDelete}>
-          Cancel order!
+          Cancel order
         </button>
       </div>
     );
