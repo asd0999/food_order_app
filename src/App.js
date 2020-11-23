@@ -11,6 +11,7 @@ import PastOrders from "./components/myAccount/PastOrders";
 import RestaurantInfo from "./components/homePage/RestaurantInfo";
 import Welcome from "./components/landingPage/Welcome";
 import Modal from "./components/modal/modal";
+import CartUpdateContainer from "./components/cart/CartUpdateContainer";
 
 export default class App extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class App extends Component {
     this.updateStateRI = this.updateStateRI.bind(this);
     this.sendRestaurant = this.sendRestaurant.bind(this);
     this.populateRestaurant = this.populateRestaurant.bind(this);
-    // this.updateOrderRestaurant = this.updateOrderRestaurant.bind(this);
+    this.populateCartForUpdating = this.populateCartForUpdating.bind(this);
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.deleteCartItem = this.deleteCartItem.bind(this);
@@ -219,6 +220,24 @@ export default class App extends Component {
     });
   }
 
+  populateCartForUpdating(itemsInOrder) {
+    this.updateOrder_UpdateCart(itemsInOrder.itemsInOrder);
+  }
+
+  updateOrder_UpdateCart(items) {
+    console.log(items);
+    let updatedTotal = 0;
+    for (let item of items) {
+      updatedTotal += item.price;
+    }
+
+    this.setState({
+      cart: items,
+      cartTotal: updatedTotal,
+      itemsInCart_id: items,
+    });
+  }
+
   render() {
     console.log(this.state.restaurants);
     return (
@@ -318,7 +337,7 @@ export default class App extends Component {
                 }
                 updateCart={this.updateCart}
               />
-              <CartContainer
+              <CartUpdateContainer
                 user_id={this.state.user_id}
                 user_name={this.state.user_name}
                 cartTotal={this.state.cartTotal}
@@ -332,6 +351,7 @@ export default class App extends Component {
                 showModal={this.showModal}
                 restaurant_name={this.state.restaurant_name}
                 itemsInOrder={this.state.pastOrders[0]}
+                populateCartForUpdating={this.populateCartForUpdating}
               />
             </div>
           </Route>
