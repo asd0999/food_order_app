@@ -7,65 +7,61 @@ body {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button,
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 /* HEADER */
 
 .header-container {
-    display: flex;
-    background-color: rgba(54, 31, 4, 0.9);
-    color: white;
-    padding: 0 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  background-color: rgba(54, 31, 4, 0.9);
+  color: white;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .brand-logo h1 {
-    font-weight: 300;
-    color: wheat;
+  font-weight: 300;
+  color: wheat;
 }
 
 .brand-logo h1 span {
-    font-weight: 600;
-    color: #07cf6f;
+  font-weight: 600;
+  color: #07cf6f;
 }
-
 
 /* .search-bar {
     margin-left: auto;
   } */
 
 .header-item-container {
-    padding-left: 5rem;
-    letter-spacing: 0.6px;
-    display: flex;
-    min-width: 360px;
-    width: 30%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: wheat;
+  padding-left: 5rem;
+  letter-spacing: 0.6px;
+  display: flex;
+  min-width: 360px;
+  width: 30%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: wheat;
 }
 
 .header-item a {
-    color: wheat;
+  color: wheat;
 }
-
 
 /* .currentDetails,
 .search-bar {
     display: flex;
 } */
-
 
 /* .header-options {
     padding: 3px;
@@ -74,33 +70,32 @@ a {
 
 #sign-in-button,
 #my-account-button {
-    background-color: wheat;
-    border: none;
-    padding: 0 10px;
-    width: 80px;
-    height: 40px;
-    border-radius: 6px;
-    font-size: 16px;
+  background-color: wheat;
+  border: none;
+  padding: 0 10px;
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 #my-account-button {
-    width: 120px;
+  width: 120px;
 }
 
 #sign-out-button {
-    background-color: transparent;
-    border: 2px solid wheat;
-    color: wheat;
-    width: 80px;
-    height: 40px;
-    border-radius: 6px;
-    font-size: 16px;
+  background-color: transparent;
+  border: 2px solid wheat;
+  color: wheat;
+  width: 80px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 .greeting {
-    font-size: 20px;
+  font-size: 20px;
 }
-
 
 /* .header-search {
     padding: 9px;
@@ -108,31 +103,30 @@ a {
     border: 1.75px solid black;
 } */
 
-
 /* BANNER */
 
 .banner-container {
-    background-color: rgb(248, 241, 228);
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  background-color: rgb(248, 241, 228);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .restaurant-details-container {
-    background-color: rgb(248, 241, 228);
-    width: 100%;
-    height: 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 60px;
+  background-color: rgb(248, 241, 228);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 60px;
 }
 
 .restaurant-details-container h1 {
-    color: rgba(54, 31, 4, 0.9);
+  color: rgba(54, 31, 4, 0.9);
 }
 
 .restaurant-details {
@@ -153,7 +147,6 @@ a {
     border: none;
 }
 
-
 /* .banner-inner {
   padding: 20px 0 20px 0;
   width: 60%;
@@ -162,71 +155,69 @@ a {
 } */
 
 .banner-icons {
-    width: 60px;
+  width: 60px;
 }
-
 
 /* welcome image */
 
 .welcome-image-container {
-    width: 100%;
-    height: 800px;
-    background-image: url("https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 800px;
+  background-image: url("https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg");
+  background-size: cover;
+  opacity: 0.5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* LISTING */
 
 .listings-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 40px;
 }
 
 .listings-col {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 100%;
-    scroll-snap-align: start;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  scroll-snap-align: start;
+  margin-top: 2rem;
 }
 
 .listings-row-element {
-    width: calc(20% - 20px);
-    min-width: 240px;
-    margin-top: 2rem;
-    /* border: 1px solid grey; */
-    box-shadow: 0px 2px 4px grey;
-    border-radius: 20px;
-    padding: 15px;
-    margin: 16px 16px;
+  width: calc(20% - 20px);
+  min-width: 240px;
+  margin-top: 2rem;
+  /* border: 1px solid grey; */
+  box-shadow: 0px 2px 4px grey;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 16px 16px;
 }
 
 .text-lower {
-    padding: 0.6rem 0;
+  padding: 0.6rem 0;
 }
 
 .text-lower span {
-    color: rgb(84, 84, 84);
+  color: rgb(84, 84, 84);
 }
 
 .image {
-    height: 240px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0px 2px 4px grey;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px grey;
 }
 
 .image img {
@@ -236,240 +227,276 @@ a {
 }
 
 .text {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
 }
 
 .text h3 {
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-    margin-top: 0;
-    height: 40px;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+  height: 40px;
 }
 
 .text span {
-    font-size: 0.8em;
-    font-weight: 300;
+  font-size: 0.8em;
+  font-weight: 300;
 }
 
 .rating {
-    margin: auto 0 auto auto;
-    height: 100%;
+  margin: auto 0 auto auto;
+  height: 100%;
 }
 
 .circle {
-    margin-right: 5px;
+  margin-right: 5px;
 }
-
 
 /* sign-in-items */
 
 .sign-in-container {
-    background-image: url(https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg);
-    background-size: cover;
-    width: 100%;
-    height: 800px;
-    opacity: 0.5;
+  background-image: url(https://lh4.googleusercontent.com/-ftDAz-RYDmI/UvN8A0aRMxI/AAAAAAAAAiE/LS33VbI81ic/w725-h412-no/mediterraneandiet-GOURMET-FOOD-SPAIN-MARISCAL-SARROCA.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  opacity: 0.5;
 }
 
 .sign-in-items {
-    margin-top: -720px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
+  margin-top: -720px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
 }
 
 .users {
-    background-color: rgb(248, 241, 228);
-    text-align: center;
-    width: 300px;
-    height: 150px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 4px grey;
-    color: rgba(54, 31, 4, 0.9);
+  background-color: rgb(248, 241, 228);
+  text-align: center;
+  width: 300px;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px grey;
+  color: rgba(54, 31, 4, 0.9);
 }
 
 .users button {
-    margin-top: 10px;
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: wheat;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0px 2px 4px grey;
-    border: none;
-    color: rgba(54, 31, 4, 0.9);
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: wheat;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px grey;
+  border: none;
+  color: rgba(54, 31, 4, 0.9);
 }
 
 .users button:hover {
-    border: none;
-    background-color: rgba(54, 31, 4, 0.9);
-    color: wheat;
+  border: none;
+  background-color: rgba(54, 31, 4, 0.9);
+  color: wheat;
 }
-
 
 /* menu-items */
 
 .listings-col-menu {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 100%;
-    scroll-snap-align: start;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  scroll-snap-align: start;
+  margin-top: 2rem;
 }
 
 .listings-row-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 0 40px;
-    width: 70%;
-    height: 440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0 40px;
+  width: 70%;
+  height: 440px;
 }
 
 .listings-row-element-menu {
-    width: calc(30% - 20px);
-    min-width: 240px;
-    margin-top: 2rem;
-    box-shadow: 0px 2px 4px grey;
-    border-radius: 20px;
-    padding: 15px;
-    margin: 8px 6px;
+  width: calc(30% - 20px);
+  min-width: 240px;
+  margin-top: 2rem;
+  box-shadow: 0px 2px 4px grey;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 8px 6px;
 }
 
 .listings-row-element-menu .image {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .menu-view {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .cart-container {
-    margin-top: 2rem;
-    width: 30%;
-    margin-right: 40px;
-    text-align: left;
+  margin-top: 2rem;
+  width: 30%;
+  margin-right: 40px;
+  text-align: left;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .th-item {
-    width: 70%;
+  width: 70%;
 }
-
 
 /* .th-item-header {
     width: 100%;
 } */
 
 #item-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .name-and-delete-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .th-price {
-    width: 30%;
-    text-align: center;
+  width: 30%;
+  text-align: center;
 }
 
 .tr-total {
-    text-align: center;
+  text-align: center;
 }
 
 tr,
 td,
 th {
-    border-bottom: 1px solid grey;
-    padding: 10px 20px;
+  border-bottom: 1px solid grey;
+  padding: 10px 20px;
 }
 
 .total {
-    padding: 0 20px;
-    /* background-color: rgb(231, 229, 222); */
-    background-color: rgb(248, 241, 228);
-    height: 61px;
+  padding: 0 20px;
+  /* background-color: rgb(231, 229, 222); */
+  background-color: rgb(248, 241, 228);
+  height: 61px;
 }
 
 th {
-    /* background-color: rgb(231, 229, 222); */
-    background-color: rgb(248, 241, 228);
+  /* background-color: rgb(231, 229, 222); */
+  background-color: rgb(248, 241, 228);
 }
 
 .item-desc {
-    font-size: 0.8em;
-    font-weight: 300;
-    margin-right: 5px;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-right: 5px;
 }
 
 .item-deets {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .order-button-container {
-    width: 99%;
-    padding: 0;
-    margin-left: 2px;
-    box-shadow: 0px 2px 4px grey;
+  width: 99%;
+  padding: 0;
+  margin-left: 2px;
+  box-shadow: 0px 2px 4px grey;
 }
 
 .order-button-container button {
-    border: none;
-    /* background-color: dodgerblue; */
-    background-color: #1cb146;
-    width: 100%;
-    box-sizing: border-box;
-    height: 60px;
-    text-align: center;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
+  border: none;
+  /* background-color: dodgerblue; */
+  background-color: #1cb146;
+  width: 100%;
+  box-sizing: border-box;
+  height: 60px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
-
 
 /* RESTAURANT INFO SECTION */
 
 .restaurant-card {
-    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvxZ2RfEwOmxlS7AgZgmXdgovZ_ecS0xswqA&usqp=CAU"); */
-    background-color: wheat;
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
-    text-align: center;
-    color: gray;
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvxZ2RfEwOmxlS7AgZgmXdgovZ_ecS0xswqA&usqp=CAU"); */
+  background-color: wheat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  text-align: center;
+  color: gray;
 }
 
 select {
-    border: none;
-    height: 28px;
-    width: 100px;
-    background-color: rgba(54, 31, 4, 0.9);
-    color: wheat;
-    font-size: 16px;
-    padding: 2px 6px;
-    border-radius: 4px;
+  border: none;
+  height: 28px;
+  width: 100px;
+  background-color: rgba(54, 31, 4, 0.9);
+  color: wheat;
+  font-size: 16px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+#modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+#modal-textbox {
+  font-family: "Arial";
+  background-color: white;
+  height: 30%;
+  width: 50%;
+  border-radius: 10px;
+  margin: 150px auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  padding: 2%;
+  line-height: 120%;
+  text-align: center;
+  background-color: rgb(103, 180, 103);
+  opacity: 0.8;
+  color: white;
+}
+#modal-textbox p {
+  padding-bottom: 10px;
+}
+.modal-button {
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: green;
+  font-family: "Arial";
+  cursor: pointer;
+  background-color: white;
 }
 
 

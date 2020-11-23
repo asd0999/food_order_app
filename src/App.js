@@ -10,6 +10,7 @@ import AccountDetails from "./components/myAccount/AccountDetails";
 import PastOrders from "./components/myAccount/PastOrders";
 import RestaurantInfo from "./components/homePage/RestaurantInfo";
 import Welcome from "./components/landingPage/Welcome";
+import Modal from "./components/modal/modal";
 
 export default class App extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class App extends Component {
       userDetails: [],
       pastOrders: [],
       delivery: true,
+      showModal: false,
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
@@ -43,6 +45,8 @@ export default class App extends Component {
     this.getPastOrders = this.getPastOrders.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
     this.updateDelivery = this.updateDelivery.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -171,6 +175,17 @@ export default class App extends Component {
       });
   }
 
+  showModal() {
+    this.setState({
+      showModal: true,
+    });
+  }
+  closeModal() {
+    this.setState({
+      showModal: false,
+    });
+  }
+
   render() {
     console.log(this.state.restaurants);
     return (
@@ -182,6 +197,7 @@ export default class App extends Component {
           getUserDetails={this.getUserDetails}
           getPastOrders={this.getPastOrders}
         />
+        {this.state.showModal ? <Modal closeModal={this.closeModal} /> : null}
         <Switch>
           {/* landing page */}
           <Route exact path="/" component={Welcome}>
@@ -239,7 +255,10 @@ export default class App extends Component {
                 emptyCart={this.emptyCart}
                 updateDelivery={this.updateDelivery}
                 delivery={this.state.delivery}
+                closeModal={this.closeModal}
+                showModal={this.showModal}
                 restaurant_name={this.state.restaurant_name}
+
               />
             </div>
           </Route>
