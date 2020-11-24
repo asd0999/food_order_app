@@ -6,7 +6,8 @@ export default class modal extends Component {
     return (
       <div id="modal">
         <div id="modal-textbox">
-          <p>Your order has been placed!</p>
+          {/* <p>Your order has been placed!</p> */}
+          <p>{this.props.modalText[this.props.modalTextIndex]}</p>
           <Link
             to={"/home"}
             className="modal-button"

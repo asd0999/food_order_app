@@ -27,7 +27,7 @@ export default class UpdateOrderButton extends Component {
         console.log(parsedData);
       });
     // this.props.emptyCart();
-    this.props.showModal();
+    this.props.showModal(1);
   }
 
   handleClickDelete() {
@@ -43,7 +43,7 @@ export default class UpdateOrderButton extends Component {
         console.log(parsedData);
       });
     // this.props.emptyCart();
-    this.props.showModal();
+    this.props.showModal(2);
   }
 
   render() {
