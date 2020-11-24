@@ -11,9 +11,9 @@ export default class UpdateOrderButton extends Component {
     fetch(
       "https://zuber-eats-api.herokuapp.com/orders/" +
         this.props.user_id +
-        "/edit",
+        "/new",
       {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify({
           user_id: this.props.user_id,
           user_name: this.props.user_name,

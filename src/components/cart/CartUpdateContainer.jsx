@@ -50,9 +50,16 @@ class CartUpdateContainer extends Component {
                   <div className="name-and-delete-div">
                     {item.item_name ? item.item_name : item.name}
                     <button
-                      onClick={() =>
-                        this.props.deleteCartItem(item.price, index)
-                      }
+                      onClick={() => {
+                        if (index === 0) {
+                          this.props.deleteCartItemFirstIndex(
+                            item.price,
+                            index
+                          );
+                        } else {
+                          this.props.deleteCartItem(item.price, index);
+                        }
+                      }}
                     >
                       X
                     </button>
