@@ -51,6 +51,7 @@ export default class App extends Component {
     this.updateDelivery = this.updateDelivery.bind(this);
     this.showModal = this.showModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.deleteCartItemFirstIndex = this.deleteCartItemFirstIndex.bind(this);
   }
 
   updateStateUI(ui, un) {
@@ -119,6 +120,8 @@ export default class App extends Component {
     let updatedTotal = this.state.cartTotal;
     updatedTotal += item.price;
 
+    console.log(item);
+
     const updatedItemsInCart_id = [
       ...this.state.itemsInCart_id,
       {
@@ -146,10 +149,13 @@ export default class App extends Component {
   }
 
   deleteCartItem(price, index) {
+    // console.log(index);
     const updated = this.state.cart;
+    // console.log(updated);
     updated.splice(index, 1);
+    // console.log(updated);
     let updatedTotal = this.state.cartTotal - price;
-    console.log("price", typeof price);
+    // console.log("price", typeof price);
 
     const updatedItemsInCart = this.state.itemsInCart_id;
     updatedItemsInCart.splice(index, 1);
@@ -158,6 +164,25 @@ export default class App extends Component {
       cart: updated,
       cartTotal: updatedTotal,
       itemsInCart_id: updatedItemsInCart,
+    });
+  }
+
+  deleteCartItemFirstIndex(price, index) {
+    // console.log(index);
+    const updated = this.state.cart;
+    // console.log(updated);
+    updated.splice(index, 1);
+    // console.log(updated);
+    let updatedTotal = this.state.cartTotal - price;
+    // console.log("price", typeof price);
+
+    // const updatedItemsInCart = this.state.itemsInCart_id;
+    // updatedItemsInCart.splice(index, 1);
+
+    this.setState({
+      cart: updated,
+      cartTotal: updatedTotal,
+      // itemsInCart_id: updatedItemsInCart,
     });
   }
 
@@ -173,7 +198,7 @@ export default class App extends Component {
         return data.json();
       })
       .then((parsedData) => {
-        console.log(parsedData);
+        // console.log(parsedData);
         this.setState({
           userDetails: parsedData,
         });
@@ -221,10 +246,7 @@ export default class App extends Component {
   }
 
   populateCartForUpdating(itemsInOrder) {
-    this.updateOrder_UpdateCart(itemsInOrder.itemsInOrder);
-  }
-
-  updateOrder_UpdateCart(items) {
+    let items = itemsInOrder.itemsInOrder;
     console.log(items);
     let updatedTotal = 0;
     for (let item of items) {
@@ -239,7 +261,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.restaurants);
+    // console.log(this.state.restaurants);
     return (
       <>
         <Header
@@ -352,6 +374,7 @@ export default class App extends Component {
                 restaurant_name={this.state.restaurant_name}
                 itemsInOrder={this.state.pastOrders[0]}
                 populateCartForUpdating={this.populateCartForUpdating}
+                deleteCartItemFirstIndex={this.deleteCartItemFirstIndex}
               />
             </div>
           </Route>

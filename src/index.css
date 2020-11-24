@@ -595,3 +595,15 @@ select {
     display: flex;
     justify-content: space-around;
 }
+
+
+/* UPDATE ORDER */
+
+#update-button,
+#delete-button {
+    width: 50%;
+}
+
+#delete-button {
+    background-color: red;
+}
