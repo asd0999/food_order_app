@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Food Central Application 
+Our application allows logged-in users to order food from select restaurants. The user first arrives at the home page of our site, where they should first login to their account. After clicking on their account, the user will be redirected back the home page where thy can see a list of restaurants to order from. Additionally, the user can click on the "My Account" at the top to see their account details and past order history. The account details consist of the Username, phone number, and email, while the "Past Orders" section displays the the restaurant, date, time, and food items of each order. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+On the home page, each restaurant name is displayed along with the restaurant's rating, delivery fee, approximate delivery time. After clicking into a restaurant, the user will find the restaurant's menu, address, phone number. By clicking on a specific menu item, that food item will be added to the user's cart on the right-side of the page. Items can be deleted from the cart by clicking on the "X". After the user is satisfied with their cart details, they can click the "Place Order!" button, and their order details will be saved. The user can also look at the Past Orders in "My Account" to see that this order was saved. 
 
-## Available Scripts
+For updating a user's most recent order, they can click on the "My Account" button at the top. The most recent order, will be colored green with an "update" button. The update button takes the user back to their cart, so that they can remove and add new items. Once the user is pleased with their updated cart, they can click the "update order" button or if the user desires to delete the cart entirely, then they can click the "cancel order" button. 
 
-In the project directory, you can run:
+### Links to the application's backend and frontend: 
+ Backend Heroku: https://zuber-eats-api.herokuapp.com/
 
-### `yarn start`
+ Frontend Heroku: https://food-hubbs.herokuapp.com/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ Frontend Github Repository: https://github.com/asd0999/food_order_app
+ 
+### Technologies Used: 
+Backend: Node.js, Express.js, MongoDB, Mongoose
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Frontend: React, React Router, CSS
 
-### `yarn test`
+### Challenges 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Github work flow was a challenging because this was our first group project. 
 
-### `yarn build`
+Figure out the schemes for our database was challenging because it was difficult to visualize the different relationships and the flow of data at the beginning. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+At the beginning of the project, we did not plan out the layout/structure of the project as well as we should have. For this reason, later in the project, we were creating a number of components that we did not expect to create. Additionally, the lack of planning created problems for us when we named different states in app.js. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### If more time permitted
+At the moment, we have three users created in the database, and new users are unable to create an account. We would have liked to create user authentication. On the homepage, each user would be prompted to signup or login. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Additionally, we would have liked to incorporate a Google Maps API into this application. With this API, the application would request the user's location upon entering the application. By having the users location, we could have provided a list of restaurants based on the user's location. 
