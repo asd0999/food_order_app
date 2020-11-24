@@ -11,6 +11,7 @@ import PastOrders from "./components/myAccount/PastOrders";
 import RestaurantInfo from "./components/homePage/RestaurantInfo";
 import Welcome from "./components/landingPage/Welcome";
 import Modal from "./components/modal/modal";
+import CartUpdateContainer from "./components/cart/CartUpdateContainer";
 
 export default class App extends Component {
   constructor(props) {
@@ -34,11 +35,14 @@ export default class App extends Component {
       pastOrders: [],
       delivery: true,
       showModal: false,
+      // updateOrder_restaurant: "",
     };
 
     this.updateStateUI = this.updateStateUI.bind(this);
     this.updateStateRI = this.updateStateRI.bind(this);
     this.sendRestaurant = this.sendRestaurant.bind(this);
+    this.populateRestaurant = this.populateRestaurant.bind(this);
+    this.populateCartForUpdating = this.populateCartForUpdating.bind(this);
     this.updateCart = this.updateCart.bind(this);
     this.emptyCart = this.emptyCart.bind(this);
     this.deleteCartItem = this.deleteCartItem.bind(this);
@@ -56,6 +60,7 @@ export default class App extends Component {
     });
   }
   updateStateRI(ri, rn, rStreet, rZip, rPhone, rImg, rApt) {
+    console.log(ri, rn);
     this.setState({
       restaurant_id: ri,
       restaurant_name: rn,
@@ -81,6 +86,31 @@ export default class App extends Component {
         // console.log("didnt find");
       }
     });
+  }
+
+  populateRestaurant(rn) {
+    this.state.restaurants.forEach((r) => {
+      if (r.restaurantName === rn) {
+        const index = this.state.restaurants.indexOf(r);
+        this.setState({ current_restaurant_index: index });
+      } else {
+      }
+    });
+    setTimeout(() => {
+      const r = this.state.restaurants[this.state.current_restaurant_index];
+      console.log(r);
+      this.updateStateRI(
+        r._id,
+        r.restaurantName,
+        r.streetname,
+        r.zipcode,
+        r.phoneNumber,
+        r.imgUrl,
+        r.apartmentNumber
+      );
+    }, 100);
+
+    // (ri, rn, rStreet, rZip, rPhone, rImg, rApt)
   }
 
   updateCart(item) {
@@ -121,9 +151,13 @@ export default class App extends Component {
     let updatedTotal = this.state.cartTotal - price;
     console.log("price", typeof price);
 
+    const updatedItemsInCart = this.state.itemsInCart_id;
+    updatedItemsInCart.splice(index, 1);
+
     this.setState({
       cart: updated,
       cartTotal: updatedTotal,
+      itemsInCart_id: updatedItemsInCart,
     });
   }
 
@@ -183,6 +217,24 @@ export default class App extends Component {
   closeModal() {
     this.setState({
       showModal: false,
+    });
+  }
+
+  populateCartForUpdating(itemsInOrder) {
+    this.updateOrder_UpdateCart(itemsInOrder.itemsInOrder);
+  }
+
+  updateOrder_UpdateCart(items) {
+    console.log(items);
+    let updatedTotal = 0;
+    for (let item of items) {
+      updatedTotal += item.price;
+    }
+
+    this.setState({
+      cart: items,
+      cartTotal: updatedTotal,
+      itemsInCart_id: items,
     });
   }
 
@@ -264,6 +316,46 @@ export default class App extends Component {
             </div>
           </Route>
 
+          {/* update order */}
+          <Route
+            exact
+            path="/r/:restaurant_name/editorder"
+            component={(Banner, MenuItemWidgetContainer, CartContainer)}
+          >
+            <RestaurantInfo
+              restaurant_name={this.state.restaurant_name}
+              restaurant_street={this.state.restaurant_street}
+              restaurant_zip={this.state.restaurant_zip}
+              restaurant_phone={this.state.restaurant_phone}
+              restaurant_img={this.state.restaurant_img}
+              restaurant_apt={this.state.restaurant_apt}
+            />
+            <div className="menu-view">
+              <MenuItemWidgetContainer
+                restaurant={
+                  this.state.restaurants[this.state.current_restaurant_index]
+                }
+                updateCart={this.updateCart}
+              />
+              <CartUpdateContainer
+                user_id={this.state.user_id}
+                user_name={this.state.user_name}
+                cartTotal={this.state.cartTotal}
+                cart={this.state.cart}
+                deleteCartItem={this.deleteCartItem}
+                itemsInCart_id={this.state.itemsInCart_id}
+                emptyCart={this.emptyCart}
+                updateDelivery={this.updateDelivery}
+                delivery={this.state.delivery}
+                closeModal={this.closeModal}
+                showModal={this.showModal}
+                restaurant_name={this.state.restaurant_name}
+                itemsInOrder={this.state.pastOrders[0]}
+                populateCartForUpdating={this.populateCartForUpdating}
+              />
+            </div>
+          </Route>
+
           {/* my account */}
           <Route
             exact
@@ -272,7 +364,13 @@ export default class App extends Component {
           >
             <div className="myaccount-container">
               <AccountDetails userDetails={this.state.userDetails} />
-              <PastOrders pastOrders={this.state.pastOrders} />
+              <PastOrders
+                pastOrders={this.state.pastOrders}
+                populateRestaurant={this.populateRestaurant}
+                restaurant={
+                  this.state.restaurants[this.state.current_restaurant_index]
+                }
+              />
             </div>
           </Route>
         </Switch>

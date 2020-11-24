@@ -569,6 +569,9 @@ select {
 .past-order-date-bar {
     display: flex;
     justify-content: space-between;
+    width: calc(100% - 4px);
+    position: relative;
+    left: 2px;
 }
 
 .last-order {
