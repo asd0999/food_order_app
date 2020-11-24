@@ -481,22 +481,25 @@ select {
     width: 100%;
     overflow: auto;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #modal-textbox {
     font-family: "Arial";
-    background-color: white;
+    background-color: #fff;
     height: 25%;
     width: 25%;
     border-radius: 10px;
-    margin: 150px auto;
+    /* margin: 0 auto; */
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     padding: 2%;
     line-height: 120%;
     text-align: center;
-    background-color: rgb(103, 180, 103);
+    background-color: #67b467;
     opacity: 0.7;
-    color: white;
+    color: #fff;
 }
 
 #modal-textbox p {
