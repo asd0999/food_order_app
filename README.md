@@ -20,7 +20,7 @@ Backend Github Repository: https://github.com/asd0999/food_order_db_api
 
 Backend: Node.js, Express.js, MongoDB, Mongoose
 
-Frontend: React, React Router, CSS
+Frontend: React, React Router
 
 ### Challenges
 
